@@ -29,7 +29,7 @@ export class BasketService {
     console.log("item price " +  item.price)
     console.log("item sales tax " +  item.salesTax)
     console.log("item import tax " +  item.importTax)
-    item.totalPrice = Number(item.price) + Number(item.salesTax) + Number(item.importTax);
+    item.totalPrice = item.count * (Number(item.price) + Number(item.salesTax) + Number(item.importTax));
     console.log("item totalPrice" + item.totalPrice )
 
     return item;
