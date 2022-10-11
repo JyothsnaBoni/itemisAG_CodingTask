@@ -11,7 +11,7 @@ export class BasketService {
   items: Item[] = [];
 
   addToBasket(item: Item) {
-    this.items.push(item);
+    this.items.push(this.calculateTax(item));
   }
 
   getItems() {
@@ -21,6 +21,18 @@ export class BasketService {
   clearBasket() {
     this.items = [];
     return this.items;
+  }
+
+  calculateTax(item: Item){
+    (item.name.includes('imported')) ? item.importTax = ((item.price*item.count)/100)*5 : item.importTax = 0;
+    item.salesTax = 0
+    console.log("item price " +  item.price)
+    console.log("item sales tax " +  item.salesTax)
+    console.log("item import tax " +  item.importTax)
+    item.totalPrice = Number(item.price) + Number(item.salesTax) + Number(item.importTax);
+    console.log("item totalPrice" + item.totalPrice )
+
+    return item;
   }
   
 }

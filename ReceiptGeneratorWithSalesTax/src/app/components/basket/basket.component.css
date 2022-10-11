@@ -17,7 +17,7 @@
 }
 
 .center_basket {
-    border: 5px solid #FFFF00;
+    border: 5px solid #111108;
     text-align: center;
 }
 
@@ -39,7 +39,7 @@ padding: 8px;
 #items th {
 padding-top: 12px;
 padding-bottom: 12px;
-text-align: left;
-background-color: #1b10de;
+text-align: center;
+background-color: #5e08b5;
 color: white;
 }

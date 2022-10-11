@@ -11,6 +11,9 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class BasketComponent implements OnInit {
 
+  ngOnInit(): void {
+  }
+
   constructor(
     private basketService: BasketService,
     private formBuilder: FormBuilder,
@@ -28,15 +31,8 @@ export class BasketComponent implements OnInit {
     // Process checkout data here
     this.basketService.addToBasket(this.itemForm.value)    
     this.basketItems = this.basketService.getItems();
-    console.warn('Your order has been submitted', this.itemForm.value);
+    console.log('Your order has been submitted', this.itemForm.value);
     this.itemForm.reset();
-  }
-
-  ngOnInit(): void {
-  }
-
-  saveItem(){
-
   }
 
 }
