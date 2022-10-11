@@ -1,0 +1,62 @@
+
+<!-- *****************************************++++ -->
+
+<h3>Shopping Basket</h3>
+
+<!-- <p>
+  <a routerLink="/shipping">Shipping Prices</a>
+</p> -->
+<div>
+    <span> Id </span>
+    <span> Name </span>
+    <span> Count </span>
+    <span> Price </span>
+</div>
+
+<div class="cart-item" *ngFor="let item of basketItems">
+    <span>{{ item.id }} </span>
+    <span>{{ item.name }} </span>
+    <span>{{ item.count | number }} </span>
+    <span>{{ item.price | currency }}</span>
+</div>
+
+<p>Enter item id, name, price, count and click add</p>
+
+<form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+
+    <div class="item_attr">
+        <label for="id">
+            Id
+        </label>
+        <input id="id" type="text" formControlName="id">
+    </div>
+
+    <div class="item_attr">
+        <label for="name">
+            Name
+        </label>
+        <input id="name" type="text" formControlName="name">
+    </div>
+
+    <div class="item_attr">
+        <label for="price">
+            Price
+        </label>
+        <input id="price" type="text" formControlName="price">
+    </div>
+
+    <div class="item_attr">
+        <label for="count">
+            Count
+        </label>
+        <input id="count" type="text" formControlName="count">
+    </div>
+
+  <button class="button" type="submit">Add Item</button>
+
+</form>
+
+
+
+
+  
