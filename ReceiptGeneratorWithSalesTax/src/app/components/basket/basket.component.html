@@ -25,12 +25,12 @@
 
                 <!-- Item type Selector -->
                 <div class="flex-selector">
-                    <mat-select [(value)]="selected" >
-                        <mat-option value="Select Item Type">Select Item Type</mat-option>
-                        <mat-option value="food">Food</mat-option>
-                        <mat-option value="medicine">Medicine</mat-option>
-                        <mat-option value="books">Books</mat-option>
-                        <mat-option value="others">Others</mat-option>
+                    <mat-select class="mat_select" [(value)]="selected" >
+                        <mat-option class="mat_select" value="Select Item Type">Select Item Type</mat-option>
+                        <mat-option class="mat_select" value="food">Food</mat-option>
+                        <mat-option class="mat_select" value="medicine">Medicine</mat-option>
+                        <mat-option class="mat_select" value="books">Books</mat-option>
+                        <mat-option class="mat_select" value="others">Others</mat-option>
                     </mat-select>
                 </div>   
 
@@ -72,8 +72,16 @@
             </div>
           </td>
         </tr>
+        <tr style="font-weight: bold;">
+            <td> </td>
+            <td > Total </td>
+            <td>{{ itemsTotal.count | number }}</td>
+            <td>{{ itemsTotal.price | currency: 'EUR'}}</td>
+            <td>{{ itemsTotal.salesTax | currency: 'EUR' }}</td>
+            <td>{{ itemsTotal.importTax | currency: 'EUR' }}</td>
+            <td>{{ itemsTotal.totalPrice | currency: 'EUR' }}</td>
+        </tr>
     </table>
-
 
 </div>
 

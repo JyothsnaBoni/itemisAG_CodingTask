@@ -20,6 +20,7 @@ export class BasketComponent implements OnInit {
 
   basketItems = this.basketService.getItems();
   selected = 'Select Item Type';
+  itemsTotal = this.basketService.getTotalItems();
   
   itemForm = this.formBuilder.group({
     id: '',
@@ -29,11 +30,11 @@ export class BasketComponent implements OnInit {
     type: '',
   });
 
-  // Add items to the basket
   onSubmit(): void {
     // add the selected type to the item
     this.itemForm.value.type = this.selected;
     this.basketService.addToBasket(this.itemForm.value); 
+
     //this.basketItems = this.basketService.getItems();
     this.itemForm.reset();
   }

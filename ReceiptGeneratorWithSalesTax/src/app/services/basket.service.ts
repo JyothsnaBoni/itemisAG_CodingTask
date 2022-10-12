@@ -9,20 +9,56 @@ export class BasketService {
   constructor() { }
 
   items: Item[] = [];
+  totalItems: Item = {
+    id: 0,
+    name: '',
+    price: 0,
+    count: 0,
+    salesTax: 0,
+    importTax: 0,
+    totalPrice: 0,
+    type: ''
+  };
 
   addToBasket(item: Item) {
     this.items.push(this.calculateTax(item));
+    this.addToTotal(item);
   }
 
-  deleteFromBasket(item: Item){
+  deleteFromBasket(item: Item) {
     const index =  this.items.indexOf(item);
     if (index !== -1) {
       this.items.splice(index, 1);
     }
+    this.deleteFromTotal(item);
+  }
+
+  addToTotal(item: Item) {
+
+    this.totalItems.count =  Number(this.totalItems.count) + Number(item.count);
+    this.totalItems.salesTax =  Number(this.totalItems.salesTax) + Number(item.salesTax);
+    this.totalItems.importTax =  Number(this.totalItems.importTax) + Number(item.importTax);
+    this.totalItems.price =  Number(this.totalItems.price) + Number(item.price);
+    this.totalItems.totalPrice =  Number(this.totalItems.totalPrice) + Number(item.totalPrice);
+
+  }
+
+  deleteFromTotal(item: Item) {
+
+    this.totalItems.count =  Number(this.totalItems.count) - Number(item.count);
+    this.totalItems.salesTax =   Number(this.totalItems.salesTax) -  Number(item.salesTax);
+    this.totalItems.importTax =   Number(this.totalItems.importTax) -  Number(item.importTax);
+    this.totalItems.price =   Number(this.totalItems.price) -  Number(item.price);
+    this.totalItems.totalPrice =   Number(this.totalItems.totalPrice) -  Number(item.totalPrice);
+
   }
 
   getItems() {
     return this.items;
+  }
+
+  getTotalItems(){
+    return this.totalItems;
   }
 
   clearBasket() {
