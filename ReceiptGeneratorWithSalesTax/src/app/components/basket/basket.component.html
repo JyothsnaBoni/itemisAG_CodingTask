@@ -7,11 +7,6 @@
         <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
             <div class="flex-container">
         
-                <!-- <div class="flex-child">
-                    <input readonly [(ngModel)]="itemId" id="id" type="text" formControlName="id" placeholder="ID">
-
-                </div> -->
-        
                 <div class="flex-child">
                     <input required id="name" type="text" formControlName="name" placeholder="Name">
                 </div>
@@ -23,10 +18,10 @@
                 <div class="flex-child">
                     <input required id="count" type="text" formControlName="count" placeholder="Count">
                 </div>
-                
+
                 <!-- Item type Selector -->
                 <div class="flex-selector">
-                    <mat-select class="mat_select" [(value)]="selected" >
+                    <mat-select class="mat_select" [(value)]="selected" required>
                         <mat-option class="mat_select" value="Select Item Type">Select Item Type</mat-option>
                         <mat-option class="mat_select" value="food">Food</mat-option>
                         <mat-option class="mat_select" value="medicine">Medicine</mat-option>
@@ -37,7 +32,11 @@
 
             </div>
 
-            <button mat-raised-button class="add_item_button" color="primary" type="submit">Add Item</button>
+            <button 
+                [disabled]="itemForm.invalid || selected === 'Select Item Type'" id="addItemButton"
+                mat-raised-button class="add_item_button" color="primary" type="submit">
+                Add Item
+            </button>
 
         </form>
 

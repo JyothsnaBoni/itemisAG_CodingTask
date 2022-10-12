@@ -50,4 +50,9 @@ export class BasketComponent implements OnInit {
 
   }
 
+  validateInputs(){
+    if (this.itemForm.value.name === '' || this.itemForm.value.count === '' || this.itemForm.value.price === '') { return true; }
+    else  { return false ; } 
+  }
+
 }

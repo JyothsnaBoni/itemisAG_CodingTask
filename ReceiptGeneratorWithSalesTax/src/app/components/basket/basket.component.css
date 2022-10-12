@@ -69,3 +69,13 @@ color: white;
 .mat-icon {
     font-size: 15px;
 }
+
+/* checking validity of input form */
+input.ng-invalid {
+    /* background-color:pink; */
+    border-color: red;
+}
+input.ng-valid {
+    /* background-color:white; */
+    border-color: white;
+}
