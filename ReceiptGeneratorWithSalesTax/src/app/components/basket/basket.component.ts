@@ -18,6 +18,7 @@ export class BasketComponent implements OnInit {
     private basketService: BasketService,
     private formBuilder: FormBuilder,
   ) { }
+  
   basketItems = this.basketService.getItems();
   
   itemForm = this.formBuilder.group({
@@ -30,9 +31,12 @@ export class BasketComponent implements OnInit {
   onSubmit(): void {
     // Process checkout data here
     this.basketService.addToBasket(this.itemForm.value)    
-    this.basketItems = this.basketService.getItems();
+    //this.basketItems = this.basketService.getItems();
     console.log('Your order has been submitted', this.itemForm.value);
     this.itemForm.reset();
+  }
+  deleteItem(item: Item): void {
+    this.basketService.deleteFromBasket(item);
   }
 
 }

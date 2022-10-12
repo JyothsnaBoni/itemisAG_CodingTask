@@ -1,7 +1,7 @@
-
-<!-- *****************************************++++ -->
-
 <div class="center_basket">
+
+    <!-- ********************* form ********************++++ -->
+
     <h1>RECIEPT GENERATOR</h1>
     
         <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
@@ -22,13 +22,15 @@
                 <div class="flex-child">
                     <input id="count" type="text" formControlName="count" placeholder="Count">
                 </div>
-        
+
             </div>
+
             <button mat-raised-button class="add_item_button" color="primary" type="submit">Add Item</button>
+
         </form>
 
 
-    <!-- *****************************************++++ -->
+    <!-- ********************* table ********************++++ -->
     
     <h3>Shopping Basket</h3>
     
@@ -41,6 +43,7 @@
           <th>Sales Tax</th>
           <th>Import Tax</th>
           <th>Price with Tax</th>
+          <th></th>
         </tr>
         <tr class="cart-item" *ngFor="let item of basketItems">
           <td>{{ item.id }}</td>
@@ -50,7 +53,13 @@
           <td>{{ item.salesTax | currency: 'EUR' }}</td>
           <td>{{ item.importTax | currency: 'EUR' }}</td>
           <td>{{ item.totalPrice | currency: 'EUR' }}</td>
-
+          <td>
+            <div class="flex-child">
+                <button mat-icon-button color="primary" (click)="deleteItem(item)">
+                   <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+          </td>
         </tr>
     </table>
 

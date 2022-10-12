@@ -14,6 +14,15 @@ export class BasketService {
     this.items.push(this.calculateTax(item));
   }
 
+  deleteFromBasket(item: Item){
+
+    const index =  this.items.indexOf(item);
+
+    if (index !== -1) {
+      this.items.splice(index, 1);
+    }
+  }
+
   getItems() {
     return this.items;
   }
