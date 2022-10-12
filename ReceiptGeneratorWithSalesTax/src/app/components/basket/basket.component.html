@@ -25,8 +25,8 @@
 
                 <!-- Item type Selector -->
                 <div class="flex-selector">
-                    <mat-label>Select Item Type</mat-label>
-                    <mat-select [(value)]="selected">
+                    <mat-select [(value)]="selected" >
+                        <mat-option value="Select Item Type">Select Item Type</mat-option>
                         <mat-option value="food">Food</mat-option>
                         <mat-option value="medicine">Medicine</mat-option>
                         <mat-option value="books">Books</mat-option>
@@ -74,6 +74,16 @@
         </tr>
     </table>
 
+
+</div>
+
+<div class="center_basket">
+
+    <div class="print_preview">
+        <button mat-raised-button class="add_item_button" color="primary" (click)="printReceipt()">Generate Preview</button>
+        &nbsp;
+        <button mat-raised-button class="add_item_button" color="primary" (click)="printReceipt()">Print</button>    
+    </div>
 
 </div>
 

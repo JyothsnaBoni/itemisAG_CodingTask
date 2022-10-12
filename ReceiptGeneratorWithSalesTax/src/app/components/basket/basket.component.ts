@@ -19,7 +19,7 @@ export class BasketComponent implements OnInit {
   ) { }
 
   basketItems = this.basketService.getItems();
-  selected = 'food';
+  selected = 'Select Item Type';
   
   itemForm = this.formBuilder.group({
     id: '',
@@ -31,17 +31,21 @@ export class BasketComponent implements OnInit {
 
   // Add items to the basket
   onSubmit(): void {
-    // Process checkout data here
+    // add the selected type to the item
     this.itemForm.value.type = this.selected;
     this.basketService.addToBasket(this.itemForm.value); 
     //this.basketItems = this.basketService.getItems();
-    console.log('Your order has been submitted', this.itemForm.value);
     this.itemForm.reset();
   }
 
   // delete items from the basket
   deleteItem(item: Item): void {
     this.basketService.deleteFromBasket(item);
+  }
+
+  // to print the receipt
+  printReceipt(){
+
   }
 
 }

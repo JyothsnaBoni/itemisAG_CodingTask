@@ -2,6 +2,20 @@
     margin-top: 1em;
 }
 
+h1 {
+    margin: 1em;
+    font-size: 40px;
+  }
+
+h3 {
+    margin-top: 2em;
+    font-size: 30px;
+}
+
+.print_preview{
+    margin-bottom: 1em;
+}
+
 .flex-container {
     display: flex;
     justify-content: center;
@@ -21,7 +35,7 @@
 }
 
 .center_basket {
-    border: 5px solid #111108;
+    margin-top: 5em;
     text-align: center;
 }
 
