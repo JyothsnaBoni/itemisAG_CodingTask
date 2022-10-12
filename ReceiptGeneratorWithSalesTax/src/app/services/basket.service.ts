@@ -57,6 +57,11 @@ export class BasketService {
     return this.items;
   }
 
+  getItemId(){
+    return Date.now();
+    // return Math.floor(Math.random() * 100);
+  }
+
   getTotalItems(){
     return this.totalItems;
   }
@@ -72,7 +77,6 @@ export class BasketService {
     let totalPrice = item.count * item.price;
 
     item.type === 'others' ? salesTax = (totalPrice/100)*10 : salesTax = 0; 
-    console.log("Item type " + item.type);
     item.name.includes('imported') ? importTax = (totalPrice/100)*5 : importTax = 0;
 
     item.importTax = importTax;

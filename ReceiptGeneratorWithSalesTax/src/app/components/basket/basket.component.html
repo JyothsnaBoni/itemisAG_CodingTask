@@ -7,22 +7,23 @@
         <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
             <div class="flex-container">
         
-                <div class="flex-child">
-                    <input id="id" type="text" formControlName="id" placeholder="ID">
-                </div>
+                <!-- <div class="flex-child">
+                    <input readonly [(ngModel)]="itemId" id="id" type="text" formControlName="id" placeholder="ID">
+
+                </div> -->
         
                 <div class="flex-child">
-                    <input id="name" type="text" formControlName="name" placeholder="Name">
+                    <input required id="name" type="text" formControlName="name" placeholder="Name">
                 </div>
             
                 <div class="flex-child">
-                    <input id="price" type="text" formControlName="price" placeholder="Price">
+                    <input required id="price" type="text" formControlName="price" placeholder="Price">
                 </div>
             
                 <div class="flex-child">
-                    <input id="count" type="text" formControlName="count" placeholder="Count">
+                    <input required id="count" type="text" formControlName="count" placeholder="Count">
                 </div>
-
+                
                 <!-- Item type Selector -->
                 <div class="flex-selector">
                     <mat-select class="mat_select" [(value)]="selected" >

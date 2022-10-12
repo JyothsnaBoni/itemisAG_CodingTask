@@ -33,8 +33,9 @@ export class BasketComponent implements OnInit {
   onSubmit(): void {
     // add the selected type to the item
     this.itemForm.value.type = this.selected;
+    this.itemForm.value.id = this.basketService.getItemId();
     this.basketService.addToBasket(this.itemForm.value); 
-
+    
     //this.basketItems = this.basketService.getItems();
     this.itemForm.reset();
   }
