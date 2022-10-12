@@ -15,9 +15,7 @@ export class BasketService {
   }
 
   deleteFromBasket(item: Item){
-
     const index =  this.items.indexOf(item);
-
     if (index !== -1) {
       this.items.splice(index, 1);
     }
@@ -33,13 +31,17 @@ export class BasketService {
   }
 
   calculateTax(item: Item){
-    (item.name.includes('imported')) ? item.importTax = ((item.price*item.count)/100)*5 : item.importTax = 0;
-    item.salesTax = 0
-    console.log("item price " +  item.price)
-    console.log("item sales tax " +  item.salesTax)
-    console.log("item import tax " +  item.importTax)
-    item.totalPrice = item.count * (Number(item.price) + Number(item.salesTax) + Number(item.importTax));
-    console.log("item totalPrice" + item.totalPrice )
+    let importTax = 0;
+    let salesTax = 0;
+    let totalPrice = item.count * item.price;
+
+    item.type === 'others' ? salesTax = (totalPrice/100)*10 : salesTax = 0; 
+    console.log("Item type " + item.type);
+    item.name.includes('imported') ? importTax = (totalPrice/100)*5 : importTax = 0;
+
+    item.importTax = importTax;
+    item.salesTax = salesTax;
+    item.totalPrice = totalPrice + salesTax + importTax;
 
     return item;
   }

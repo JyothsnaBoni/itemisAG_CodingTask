@@ -23,6 +23,17 @@
                     <input id="count" type="text" formControlName="count" placeholder="Count">
                 </div>
 
+                <!-- Item type Selector -->
+                <div class="flex-selector">
+                    <mat-label>Select Item Type</mat-label>
+                    <mat-select [(value)]="selected">
+                        <mat-option value="food">Food</mat-option>
+                        <mat-option value="medicine">Medicine</mat-option>
+                        <mat-option value="books">Books</mat-option>
+                        <mat-option value="others">Others</mat-option>
+                    </mat-select>
+                </div>   
+
             </div>
 
             <button mat-raised-button class="add_item_button" color="primary" type="submit">Add Item</button>

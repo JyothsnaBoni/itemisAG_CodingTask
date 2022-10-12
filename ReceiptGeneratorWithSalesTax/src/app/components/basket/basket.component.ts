@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Item } from '../../models/item'
 import { FormBuilder } from '@angular/forms';
 import { BasketService } from 'src/app/services/basket.service';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-basket',
@@ -18,23 +17,29 @@ export class BasketComponent implements OnInit {
     private basketService: BasketService,
     private formBuilder: FormBuilder,
   ) { }
-  
+
   basketItems = this.basketService.getItems();
+  selected = 'food';
   
   itemForm = this.formBuilder.group({
     id: '',
     name: '',
     price: '',
     count: '',
+    type: '',
   });
 
+  // Add items to the basket
   onSubmit(): void {
     // Process checkout data here
-    this.basketService.addToBasket(this.itemForm.value)    
+    this.itemForm.value.type = this.selected;
+    this.basketService.addToBasket(this.itemForm.value); 
     //this.basketItems = this.basketService.getItems();
     console.log('Your order has been submitted', this.itemForm.value);
     this.itemForm.reset();
   }
+
+  // delete items from the basket
   deleteItem(item: Item): void {
     this.basketService.deleteFromBasket(item);
   }

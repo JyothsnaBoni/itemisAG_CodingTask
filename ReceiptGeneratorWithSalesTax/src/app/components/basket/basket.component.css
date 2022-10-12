@@ -12,6 +12,10 @@
     margin-right: 10px;
 }
 
+.flex-selector{
+    width: 150px;
+}
+
 .add_item_button {
     margin-top: 1em;
 }

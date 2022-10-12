@@ -6,4 +6,5 @@ export interface Item {
     salesTax: number;
     importTax: number;
     totalPrice: number;
+    type: string;
   }
