@@ -87,11 +87,28 @@
 
 <div class="center_basket">
 
-    <div class="print_preview">
-        <button mat-raised-button class="add_item_button" color="primary" (click)="printReceipt()">Generate Preview</button>
-        &nbsp;
-        <button mat-raised-button class="add_item_button" color="primary" (click)="printReceipt()">Print</button>    
+
+    <button mat-raised-button   [useExistingCss]="true"
+	printSectionId="print_section"
+	ngxPrint class="add_item_button" color="primary">preview</button>
+
+    &nbsp;
+
+    <button mat-raised-button   [useExistingCss]="true"
+	printSectionId="print_section"
+	ngxPrint class="add_item_button" color="primary">Print</button>
+
+    &nbsp;
+    
+    <div id="print_section" class="print_section_div">
+       <app-print></app-print>
     </div>
+
+   
+
+    <!-- [printStyle]="{h1 : {'color': 'red'}, h2 : {'border': 'solid 1px'}}" -->
+
+
 
 </div>
 

@@ -79,3 +79,14 @@ input.ng-valid {
     /* background-color:white; */
     border-color: white;
 }
+
+/* Print section preview */
+
+div .print_section {
+    pointer-events: none;
+  }
+ 
+.print_section_div{
+    display: none;
+}
+

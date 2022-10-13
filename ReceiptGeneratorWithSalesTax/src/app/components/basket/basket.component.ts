@@ -46,8 +46,8 @@ export class BasketComponent implements OnInit {
   }
 
   // to print the receipt
-  printReceipt(){
-
+  showPreview(){
+    
   }
 
   validateInputs(){
