@@ -43,11 +43,11 @@
             background: #5e08b5;;
             border-radius: 4px;
             color: white;">
-                <tr>
+                <tr class="invoice-items">
                 <!-- <th style="width: 50px; padding-left: 0;">Sn.</th> -->
                 <th style="width: 220px;">Item Name</th>
                 <th>QTY</th>
-                <th style="text-align: right; padding-right: 0;">Price</th>
+                <th style="text-align: right; padding-right: 10;">Price</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,7 +64,8 @@
             margin-top: 15px;
             border: 1px dashed #00cd00;
             border-radius: 3px;">
-            <thead>
+            <thead style="width: 100%;
+            border-radius: 4px;">
                 <tr>
                 <td>Total Sales Tax: </td>
                 <td style="text-align: right;">{{itemsTotal.salesTax | currency: 'EUR'}}</td>
