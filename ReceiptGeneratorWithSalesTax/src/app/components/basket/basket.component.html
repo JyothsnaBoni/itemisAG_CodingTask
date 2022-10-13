@@ -2,8 +2,10 @@
 
     <!-- ********************* form ********************++++ -->
 
-    <h1>RECIEPT GENERATOR</h1>
-    
+    <div class="center_basket">
+
+        <h1>RECIEPT GENERATOR</h1>
+        
         <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
             <div class="flex-container">
         
@@ -32,6 +34,8 @@
 
             </div>
 
+            <br>
+
             <button 
                 [disabled]="itemForm.invalid || selected === 'Select Item Type'" id="addItemButton"
                 mat-raised-button class="add_item_button" color="primary" type="submit">
@@ -39,6 +43,8 @@
             </button>
 
         </form>
+
+    </div>
 
 
     <!-- ********************* table ********************++++ -->
@@ -83,10 +89,8 @@
         </tr>
     </table>
 
-</div>
-
-<div class="center_basket">
-
+    <br>
+    <br>
 
     <button mat-raised-button   [useExistingCss]="true"
 	printSectionId="print_section"
@@ -98,21 +102,25 @@
 	printSectionId="print_section"
 	ngxPrint class="add_item_button" color="primary">Print</button>
 
-    &nbsp;
+    <br>
+    <br>
 
     <div id="print_section" class="print_section_div">
-
         &nbsp;
        <app-print></app-print>
     </div>
 
+
+</div>
+
+
+  
    
 
     <!-- [printStyle]="{h1 : {'color': 'red'}, h2 : {'border': 'solid 1px'}}" -->
 
 
 
-</div>
 
 
 
