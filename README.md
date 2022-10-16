@@ -3,6 +3,9 @@ This is a coding task given by  itemis AG Company, as a basic interview process.
 
 # Tech Stack Used
 
+- Backend is a fake json server with `npm i json-server`. 
+- The receipts data is stored in the `db.json` file under the `server` folder.
+
 - The frontend(ReceiptGeneratorWithSalesTax) is developed using Angular. 
 
 ```
