@@ -125,6 +125,37 @@
           "totalPrice": 100
         }
       ]
+    },
+    {
+      "id": "1665938669394",
+      "name": "Receipt-1665938669394",
+      "price": 102,
+      "count": 4,
+      "salesTax": 0,
+      "importTax": 0,
+      "totalPrice": 106,
+      "items": [
+        {
+          "id": 1665938740613,
+          "name": "cake",
+          "price": "100",
+          "count": "1",
+          "type": "food",
+          "importTax": 0,
+          "salesTax": 0,
+          "totalPrice": 100
+        },
+        {
+          "id": 1665938748468,
+          "name": "cake",
+          "price": "2",
+          "count": "3",
+          "type": "medicine",
+          "importTax": 0,
+          "salesTax": 0,
+          "totalPrice": 6
+        }
+      ]
     }
   ]
 }
