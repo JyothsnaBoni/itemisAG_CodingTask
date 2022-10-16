@@ -40,6 +40,7 @@ export class BasketComponent implements OnInit {
   });
 
   saveReceipt() {
+    this.receipt.name = "Receipt-" + this.receipt.id;
     this.http.post<any>(this.baseURL, this.receipt).subscribe({
       next: data => {
           this.postId = data.id;

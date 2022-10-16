@@ -65,7 +65,7 @@ export class BasketService {
   }
 
   generateReceiptId(){
-    this.receipt.id = "Receipt-" + String(Date.now());
+    this.receipt.id = String(Date.now());
     return this.receipt.id;
   }
 
