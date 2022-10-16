@@ -21,6 +21,7 @@ export class BasketComponent implements OnInit {
   basketItems = this.basketService.getItems();
   selected = 'Select Item Type';
   itemsTotal = this.basketService.getTotalItems();
+  receiptId = this.basketService.generateReceiptId();
   
   itemForm = this.formBuilder.group({
     id: '',
@@ -48,6 +49,13 @@ export class BasketComponent implements OnInit {
   // to print the receipt
   showPreview(){
     
+  }
+
+  clearBasket(){
+    this.basketService.clearBasket();
+    this.basketService.clearReceipt();
+    this.basketItems = []; 
+    this.itemsTotal = this.basketService.getTotalItems();
   }
 
   validateInputs(){

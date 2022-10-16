@@ -7,4 +7,5 @@ export interface Item {
     importTax: number;
     totalPrice: number;
     type: string;
+    receiptId: string;
   }

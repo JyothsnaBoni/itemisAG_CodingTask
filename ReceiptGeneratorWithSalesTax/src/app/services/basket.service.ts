@@ -17,7 +17,8 @@ export class BasketService {
     salesTax: 0,
     importTax: 0,
     totalPrice: 0,
-    type: ''
+    type: '',
+    receiptId: ''
   };
 
   addToBasket(item: Item) {
@@ -62,6 +63,15 @@ export class BasketService {
     // return Math.floor(Math.random() * 100);
   }
 
+  generateReceiptId(){
+    this.totalItems.receiptId = 'Receipt-' + String(Date.now());
+    return this.totalItems.receiptId;
+  }
+
+  getReceiptId(){
+    return this.totalItems.receiptId;
+  }
+
   getTotalItems(){
     return this.totalItems;
   }
@@ -69,6 +79,20 @@ export class BasketService {
   clearBasket() {
     this.items = [];
     return this.items;
+  }
+
+  clearReceipt(){
+    this.totalItems = {
+      id: 0,
+      name: '',
+      price: 0,
+      count: 0,
+      salesTax: 0,
+      importTax: 0,
+      totalPrice: 0,
+      type: '',
+      receiptId: ''
+    }
   }
 
   calculateTax(item: Item){

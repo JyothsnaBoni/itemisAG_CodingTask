@@ -92,9 +92,7 @@
     <br>
     <br>
 
-    <button mat-raised-button   [useExistingCss]="true"
-	printSectionId="print_section"
-	ngxPrint class="add_item_button" color="primary">preview</button>
+    <button mat-raised-button class="add_item_button" color="primary" (click)="clearBasket()">Clear Basket</button>
 
     &nbsp;
 
@@ -107,7 +105,7 @@
 
     <div id="print_section" class="print_section_div">
         &nbsp;
-       <app-print></app-print>
+       <app-print [basketItems]="basketItems" [selected]="selected" [itemsTotal]="itemsTotal" [receiptId]="receiptId"></app-print>
     </div>
 
 
