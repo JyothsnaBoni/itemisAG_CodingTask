@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Item, Receipt } from '../../models/item'
+import { Item } from '../../models/item'
 import { FormBuilder } from '@angular/forms';
 import { BasketService } from 'src/app/services/basket.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { ReceiptsHistoryComponent } from '../receipts-history/receipts-history.component';
 
 @Component({
   selector: 'app-basket',

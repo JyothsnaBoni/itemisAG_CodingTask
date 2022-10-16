@@ -1,0 +1,28 @@
+<div class="center_basket">
+    
+    <h3>Receipts History</h3>
+
+    <table id="items">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Count</th>
+          <th>Price</th>
+          <th>Sales Tax</th>
+          <th>Import Tax</th>
+          <th>Price with Tax</th>
+        </tr>
+        <tr class="cart-item" *ngFor="let receipt of receipts">
+          <td>{{ receipt.id }}</td>
+          <td>{{ receipt.name }}</td>
+          <td>{{ receipt.count | number }}</td>
+          <td>{{ receipt.price | currency: 'EUR'}}</td>
+          <td>{{ receipt.salesTax | currency: 'EUR' }}</td>
+          <td>{{ receipt.importTax | currency: 'EUR' }}</td>
+          <td>{{ receipt.totalPrice | currency: 'EUR' }}</td>
+
+        </tr>
+    </table>
+
+</div>
+

@@ -14,12 +14,16 @@ import { AppComponent } from './app.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrintComponent } from './components/print/print.component';
+import { ReceiptsHistoryComponent } from './components/receipts-history/receipts-history.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasketComponent,
-    PrintComponent
+    PrintComponent,
+    ReceiptsHistoryComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

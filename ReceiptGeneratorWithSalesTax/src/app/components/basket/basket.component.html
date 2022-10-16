@@ -1,5 +1,17 @@
 <div class="center_basket">
 
+    <button mat-icon-button color="primary">
+        <mat-icon>home</mat-icon>
+    </button>
+
+    <button mat-icon-button color="primary">
+        <mat-icon>settings</mat-icon>
+    </button>
+
+    <button mat-icon-button color="primary">
+        <mat-icon>history</mat-icon>
+    </button>
+
     <!-- ********************* form ********************++++ -->
 
     <div class="center_basket">
@@ -49,75 +61,73 @@
 
     <!-- ********************* table ********************++++ -->
     
-    <h3>Shopping Basket</h3>
+    <div class="center_basket">
+        <h3>Shopping Basket</h3>
+        <br>
+
+        <table id="items">
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Count</th>
+              <th>Price</th>
+              <th>Sales Tax</th>
+              <th>Import Tax</th>
+              <th>Price with Tax</th>
+              <th></th>
+            </tr>
+            <tr class="cart-item" *ngFor="let item of basketItems">
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.count | number }}</td>
+              <td>{{ item.price | currency: 'EUR'}}</td>
+              <td>{{ item.salesTax | currency: 'EUR' }}</td>
+              <td>{{ item.importTax | currency: 'EUR' }}</td>
+              <td>{{ item.totalPrice | currency: 'EUR' }}</td>
+              <td>
+                <div class="flex-child">
+                    <button mat-icon-button color="primary" (click)="deleteItem(item)">
+                       <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+              </td>
+            </tr>
+            <tr style="font-weight: bold;">
+                <td> </td>
+                <td > Total </td>
+                <td>{{ receipt.count | number }}</td>
+                <td>{{ receipt.price | currency: 'EUR'}}</td>
+                <td>{{ receipt.salesTax | currency: 'EUR' }}</td>
+                <td>{{ receipt.importTax | currency: 'EUR' }}</td>
+                <td>{{ receipt.totalPrice | currency: 'EUR' }}</td>
+            </tr>
+        </table>
     
-    <table id="items">
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Count</th>
-          <th>Price</th>
-          <th>Sales Tax</th>
-          <th>Import Tax</th>
-          <th>Price with Tax</th>
-          <th></th>
-        </tr>
-        <tr class="cart-item" *ngFor="let item of basketItems">
-          <td>{{ item.id }}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.count | number }}</td>
-          <td>{{ item.price | currency: 'EUR'}}</td>
-          <td>{{ item.salesTax | currency: 'EUR' }}</td>
-          <td>{{ item.importTax | currency: 'EUR' }}</td>
-          <td>{{ item.totalPrice | currency: 'EUR' }}</td>
-          <td>
-            <div class="flex-child">
-                <button mat-icon-button color="primary" (click)="deleteItem(item)">
-                   <mat-icon>delete</mat-icon>
-                </button>
-            </div>
-          </td>
-        </tr>
-        <tr style="font-weight: bold;">
-            <td> </td>
-            <td > Total </td>
-            <td>{{ receipt.count | number }}</td>
-            <td>{{ receipt.price | currency: 'EUR'}}</td>
-            <td>{{ receipt.salesTax | currency: 'EUR' }}</td>
-            <td>{{ receipt.importTax | currency: 'EUR' }}</td>
-            <td>{{ receipt.totalPrice | currency: 'EUR' }}</td>
-        </tr>
-    </table>
-
-    <br>
-    <br>
-
-    <button mat-raised-button class="add_item_button" color="primary" (click)="clearBasket()">Clear Basket</button>
-
-    &nbsp;
-
-    <button mat-raised-button   [useExistingCss]="true"
-	printSectionId="print_section"
-	ngxPrint class="add_item_button" color="primary" (click)="saveReceipt()">Print</button>
-
-    <br>
-    <br>
+        <br>
+        <br>
+    
+        <button mat-raised-button class="add_item_button" color="primary" (click)="clearBasket()">Clear Basket</button>
+    
+        &nbsp;
+    
+        <button mat-raised-button   [useExistingCss]="true"
+        printSectionId="print_section"
+        ngxPrint class="add_item_button" color="primary" (click)="saveReceipt()">Print</button>
+    
+        <br>
+        <br>
+    </div>
 
     <div id="print_section" class="print_section_div">
         &nbsp;
-       <app-print [basketItems]="basketItems" [selected]="selected" [itemsTotal]="receipt" [receiptId]="receiptId"></app-print>
+        <app-print [basketItems]="basketItems" [selected]="selected" [itemsTotal]="receipt" [receiptId]="receiptId"></app-print>
     </div>
 
+    <app-receipts-history></app-receipts-history>
+
+    <app-settings></app-settings>
 
 </div>
-
-
-  
-   
-
-    <!-- [printStyle]="{h1 : {'color': 'red'}, h2 : {'border': 'solid 1px'}}" -->
-
-
 
 
 

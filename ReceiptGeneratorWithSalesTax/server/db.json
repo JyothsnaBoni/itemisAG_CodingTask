@@ -22,7 +22,7 @@
       ]
     },
     {
-      "id": "Receipt-1665924992962",
+      "id": "Receipt-1665929344256",
       "name": "",
       "price": 100,
       "count": 1,
@@ -31,7 +31,49 @@
       "totalPrice": 100,
       "items": [
         {
-          "id": 1665925001002,
+          "id": 1665929356105,
+          "name": "Cola",
+          "price": "100",
+          "count": "1",
+          "type": "food",
+          "importTax": 0,
+          "salesTax": 0,
+          "totalPrice": 100
+        }
+      ]
+    },
+    {
+      "id": "Receipt-1665931649357",
+      "name": "",
+      "price": 100,
+      "count": 1,
+      "salesTax": 0,
+      "importTax": 0,
+      "totalPrice": 100,
+      "items": [
+        {
+          "id": 1665931669905,
+          "name": "Boni",
+          "price": "100",
+          "count": "1",
+          "type": "food",
+          "importTax": 0,
+          "salesTax": 0,
+          "totalPrice": 100
+        }
+      ]
+    },
+    {
+      "id": "Receipt-1665937381493",
+      "name": "",
+      "price": 100,
+      "count": 1,
+      "salesTax": 0,
+      "importTax": 0,
+      "totalPrice": 100,
+      "items": [
+        {
+          "id": 1665937396181,
           "name": "cake",
           "price": "100",
           "count": "1",
@@ -43,7 +85,7 @@
       ]
     },
     {
-      "id": "Receipt-1665924992964",
+      "id": "Receipt-1665937524253",
       "name": "",
       "price": 100,
       "count": 1,
@@ -52,175 +94,7 @@
       "totalPrice": 100,
       "items": [
         {
-          "id": 1665925001003,
-          "name": "cake",
-          "price": "100",
-          "count": "1",
-          "type": "food",
-          "importTax": 0,
-          "salesTax": 0,
-          "totalPrice": 100
-        }
-      ]
-    },
-    {
-      "id": "Receipt-1665924992966",
-      "name": "",
-      "price": 100,
-      "count": 1,
-      "salesTax": 0,
-      "importTax": 0,
-      "totalPrice": 100,
-      "items": [
-        {
-          "id": 1665925001003,
-          "name": "cake",
-          "price": "100",
-          "count": "1",
-          "type": "food",
-          "importTax": 0,
-          "salesTax": 0,
-          "totalPrice": 100
-        }
-      ]
-    },
-    {
-      "id": "Receipt-1665928207831",
-      "name": "",
-      "price": 100,
-      "count": 1,
-      "salesTax": 0,
-      "importTax": 0,
-      "totalPrice": 100,
-      "items": [
-        {
-          "id": 1665928219991,
-          "name": "cake",
-          "price": "100",
-          "count": "1",
-          "type": "food",
-          "importTax": 0,
-          "salesTax": 0,
-          "totalPrice": 100
-        }
-      ]
-    },
-    {
-      "id": "Receipt-1665928268271",
-      "name": "",
-      "price": 100,
-      "count": 1,
-      "salesTax": 0,
-      "importTax": 5,
-      "totalPrice": 105,
-      "items": [
-        {
-          "id": 1665928280869,
-          "name": "imported book",
-          "price": "100",
-          "count": "1",
-          "type": "food",
-          "importTax": 5,
-          "salesTax": 0,
-          "totalPrice": 105
-        }
-      ]
-    },
-    {
-      "id": "Receipt-1665928518470",
-      "name": "",
-      "price": 100,
-      "count": 1,
-      "salesTax": 0,
-      "importTax": 0,
-      "totalPrice": 100,
-      "items": [
-        {
-          "id": 1665928528019,
-          "name": "cake",
-          "price": "100",
-          "count": "1",
-          "type": "food",
-          "importTax": 0,
-          "salesTax": 0,
-          "totalPrice": 100
-        }
-      ]
-    },
-    {
-      "id": "Receipt-1665928592051",
-      "name": "",
-      "price": 100,
-      "count": 1,
-      "salesTax": 0,
-      "importTax": 0,
-      "totalPrice": 100,
-      "items": [
-        {
-          "id": 1665928602526,
-          "name": "cake",
-          "price": "100",
-          "count": "1",
-          "type": "food",
-          "importTax": 0,
-          "salesTax": 0,
-          "totalPrice": 100
-        }
-      ]
-    },
-    {
-      "id": "Receipt-1665928769801",
-      "name": "",
-      "price": 100,
-      "count": 1,
-      "salesTax": 0,
-      "importTax": 0,
-      "totalPrice": 100,
-      "items": [
-        {
-          "id": 1665928781114,
-          "name": "Coke",
-          "price": "100",
-          "count": "1",
-          "type": "food",
-          "importTax": 0,
-          "salesTax": 0,
-          "totalPrice": 100
-        }
-      ]
-    },
-    {
-      "id": "Receipt-1665928878360",
-      "name": "",
-      "price": 100,
-      "count": 1,
-      "salesTax": 0,
-      "importTax": 0,
-      "totalPrice": 100,
-      "items": [
-        {
-          "id": 1665928888021,
-          "name": "cake",
-          "price": "100",
-          "count": "1",
-          "type": "food",
-          "importTax": 0,
-          "salesTax": 0,
-          "totalPrice": 100
-        }
-      ]
-    },
-    {
-      "id": "Receipt-1665928914892",
-      "name": "",
-      "price": 100,
-      "count": 1,
-      "salesTax": 0,
-      "importTax": 0,
-      "totalPrice": 100,
-      "items": [
-        {
-          "id": 1665928922150,
+          "id": 1665937578523,
           "name": "cake",
           "price": "100",
           "count": "1",
