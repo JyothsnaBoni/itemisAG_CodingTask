@@ -1,5 +1,5 @@
 export interface Item {
-    id: number;
+    id: string;
     name: string;
     price: number;
     count: number;
@@ -9,3 +9,15 @@ export interface Item {
     type: string;
     receiptId: string;
   }
+
+export interface Receipt {
+  id: string;
+  name: string;
+  price: number;
+  count: number;
+  salesTax: number;
+  importTax: number;
+  totalPrice: number;
+  items: Item[];
+}
+

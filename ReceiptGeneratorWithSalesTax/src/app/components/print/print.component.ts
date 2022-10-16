@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BasketService } from 'src/app/services/basket.service';
-import { Item } from 'src/app/models/item';
+import { Item, Receipt } from 'src/app/models/item';
 
 @Component({
   selector: 'app-print',
@@ -11,16 +11,15 @@ export class PrintComponent implements OnInit {
 
   @Input() basketItems: Item[] = [];
   @Input() selected : string = '';
-  @Input() itemsTotal: Item = {
-    id: 0,
+  @Input() itemsTotal: Receipt = {
+    id: '',
     name: '',
     price: 0,
     count: 0,
     salesTax: 0,
     importTax: 0,
     totalPrice: 0,
-    type: '',
-    receiptId: ''
+    items: []
   };
   @Input() receiptId : string = '';
   

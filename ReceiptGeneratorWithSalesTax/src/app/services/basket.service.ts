@@ -1,24 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Item } from '../models/item';
+import { Item, Receipt } from '../models/item';
+// import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasketService {
 
+  baseURL: string = "http://localhost:3000/";
+
+  // private http: HttpClient
+
   constructor() { }
 
   items: Item[] = [];
-  totalItems: Item = {
-    id: 0,
+  receipt: Receipt = {
+    id: '',
     name: '',
     price: 0,
     count: 0,
     salesTax: 0,
     importTax: 0,
     totalPrice: 0,
-    type: '',
-    receiptId: ''
+    items: [],
   };
 
   addToBasket(item: Item) {
@@ -36,21 +40,23 @@ export class BasketService {
 
   addToTotal(item: Item) {
 
-    this.totalItems.count =  Number(this.totalItems.count) + Number(item.count);
-    this.totalItems.salesTax =  Number(this.totalItems.salesTax) + Number(item.salesTax);
-    this.totalItems.importTax =  Number(this.totalItems.importTax) + Number(item.importTax);
-    this.totalItems.price =  Number(this.totalItems.price) + Number(item.price);
-    this.totalItems.totalPrice =  Number(this.totalItems.totalPrice) + Number(item.totalPrice);
+    this.receipt.count =  Number(this.receipt.count) + Number(item.count);
+    this.receipt.salesTax =  Number(this.receipt.salesTax) + Number(item.salesTax);
+    this.receipt.importTax =  Number(this.receipt.importTax) + Number(item.importTax);
+    this.receipt.price =  Number(this.receipt.price) + Number(item.price);
+    this.receipt.totalPrice =  Number(this.receipt.totalPrice) + Number(item.totalPrice);
+    this.receipt.items = this.items;
 
   }
 
   deleteFromTotal(item: Item) {
 
-    this.totalItems.count =  Number(this.totalItems.count) - Number(item.count);
-    this.totalItems.salesTax =   Number(this.totalItems.salesTax) -  Number(item.salesTax);
-    this.totalItems.importTax =   Number(this.totalItems.importTax) -  Number(item.importTax);
-    this.totalItems.price =   Number(this.totalItems.price) -  Number(item.price);
-    this.totalItems.totalPrice =   Number(this.totalItems.totalPrice) -  Number(item.totalPrice);
+    this.receipt.count =  Number(this.receipt.count) - Number(item.count);
+    this.receipt.salesTax =   Number(this.receipt.salesTax) -  Number(item.salesTax);
+    this.receipt.importTax =   Number(this.receipt.importTax) -  Number(item.importTax);
+    this.receipt.price =   Number(this.receipt.price) -  Number(item.price);
+    this.receipt.totalPrice =   Number(this.receipt.totalPrice) -  Number(item.totalPrice);
+    this.receipt.items = this.items;
 
   }
 
@@ -64,16 +70,16 @@ export class BasketService {
   }
 
   generateReceiptId(){
-    this.totalItems.receiptId = 'Receipt-' + String(Date.now());
-    return this.totalItems.receiptId;
+    this.receipt.id = "Receipt-" + String(Date.now());
+    return this.receipt.id;
   }
 
   getReceiptId(){
-    return this.totalItems.receiptId;
+    return this.receipt.id;
   }
 
   getTotalItems(){
-    return this.totalItems;
+    return this.receipt;
   }
 
   clearBasket() {
@@ -82,16 +88,15 @@ export class BasketService {
   }
 
   clearReceipt(){
-    this.totalItems = {
-      id: 0,
+    this.receipt = {
+      id: '',
       name: '',
       price: 0,
       count: 0,
       salesTax: 0,
       importTax: 0,
       totalPrice: 0,
-      type: '',
-      receiptId: ''
+      items: []
     }
   }
 
