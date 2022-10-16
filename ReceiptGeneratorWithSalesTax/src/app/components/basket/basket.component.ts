@@ -54,8 +54,9 @@ export class BasketComponent implements OnInit {
   clearBasket(){
     this.basketService.clearBasket();
     this.basketService.clearReceipt();
-    this.basketItems = []; 
     this.itemsTotal = this.basketService.getTotalItems();
+    this.basketItems = this.basketService.getItems();
+    this.receiptId = this.basketService.generateReceiptId();
   }
 
   validateInputs(){
