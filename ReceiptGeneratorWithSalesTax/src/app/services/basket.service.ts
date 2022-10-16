@@ -1,15 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Item, Receipt } from '../models/item';
-// import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasketService {
-
-  baseURL: string = "http://localhost:3000/";
-
-  // private http: HttpClient
 
   constructor() { }
 

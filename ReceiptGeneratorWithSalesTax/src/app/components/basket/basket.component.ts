@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Item } from '../../models/item'
+import { Item, Receipt } from '../../models/item'
 import { FormBuilder } from '@angular/forms';
 import { BasketService } from 'src/app/services/basket.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-basket',
@@ -9,18 +12,24 @@ import { BasketService } from 'src/app/services/basket.service';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent implements OnInit {
+  postId: any;
+  errorMessage: any;
+  totalAngularPackages: any;
 
   ngOnInit(): void {
   }
 
+  baseURL: string = "http://localhost:3000/receipts";
+
   constructor(
     private basketService: BasketService,
     private formBuilder: FormBuilder,
+    private http: HttpClient
   ) { }
 
   basketItems = this.basketService.getItems();
   selected = 'Select Item Type';
-  itemsTotal = this.basketService.getTotalItems();
+  receipt = this.basketService.getTotalItems();
   receiptId = this.basketService.generateReceiptId();
   
   itemForm = this.formBuilder.group({
@@ -30,6 +39,23 @@ export class BasketComponent implements OnInit {
     count: '',
     type: '',
   });
+
+  saveReceipt() {
+    this.http.post<any>(this.baseURL, this.receipt).subscribe({
+      next: data => {
+          this.postId = data.id;
+      },
+      error: error => {
+          this.errorMessage = error.message;
+          console.error('There was an error!', error);
+      }
+    });
+    this.getReceipts();
+  }
+
+  getReceipts(){
+    this.http.get(this.baseURL).subscribe(responseData => console.log(responseData));
+  }
 
   onSubmit(): void {
     // add the selected type to the item
@@ -54,7 +80,7 @@ export class BasketComponent implements OnInit {
   clearBasket(){
     this.basketService.clearBasket();
     this.basketService.clearReceipt();
-    this.itemsTotal = this.basketService.getTotalItems();
+    this.receipt = this.basketService.getTotalItems();
     this.basketItems = this.basketService.getItems();
     this.receiptId = this.basketService.generateReceiptId();
   }

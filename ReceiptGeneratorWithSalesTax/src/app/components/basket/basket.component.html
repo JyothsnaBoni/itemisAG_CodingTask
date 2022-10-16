@@ -81,11 +81,11 @@
         <tr style="font-weight: bold;">
             <td> </td>
             <td > Total </td>
-            <td>{{ itemsTotal.count | number }}</td>
-            <td>{{ itemsTotal.price | currency: 'EUR'}}</td>
-            <td>{{ itemsTotal.salesTax | currency: 'EUR' }}</td>
-            <td>{{ itemsTotal.importTax | currency: 'EUR' }}</td>
-            <td>{{ itemsTotal.totalPrice | currency: 'EUR' }}</td>
+            <td>{{ receipt.count | number }}</td>
+            <td>{{ receipt.price | currency: 'EUR'}}</td>
+            <td>{{ receipt.salesTax | currency: 'EUR' }}</td>
+            <td>{{ receipt.importTax | currency: 'EUR' }}</td>
+            <td>{{ receipt.totalPrice | currency: 'EUR' }}</td>
         </tr>
     </table>
 
@@ -98,14 +98,14 @@
 
     <button mat-raised-button   [useExistingCss]="true"
 	printSectionId="print_section"
-	ngxPrint class="add_item_button" color="primary">Print</button>
+	ngxPrint class="add_item_button" color="primary" (click)="saveReceipt()">Print</button>
 
     <br>
     <br>
 
     <div id="print_section" class="print_section_div">
         &nbsp;
-       <app-print [basketItems]="basketItems" [selected]="selected" [itemsTotal]="itemsTotal" [receiptId]="receiptId"></app-print>
+       <app-print [basketItems]="basketItems" [selected]="selected" [itemsTotal]="receipt" [receiptId]="receiptId"></app-print>
     </div>
 
 
