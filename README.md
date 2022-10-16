@@ -60,6 +60,7 @@ $npm install
 - You can click on the `delete` icon to delete an item from the basket
 - if you want to clear the complete basket, you can click `clear basket`
 - Receipt preview is available below the shopping basket with the header `Tax Invoice/Bill`
-- On click `Print`, the receipt will be saved in the json db as well as you can see a preview of the print. If you want to proceed with print, you can click on print button in the preview page.
+- You can also view the preview of the invoice by clicking on the `Show Invoice Preview` button. Navigate back to the `receipt generator` by clicking on the `home` icon.
+- On click `Print`, the receipt will be saved in the json db as well as you can see a preview of the print. If you want to proceed with print, you can click on print button in the preview page. After the `print` event, the `invoice` and the `Shopping Basket` will be cleared for new invoice.
 - To check the receipt history, click on the `history` (third icon in order from left to right)icon on the top of the page.
 - If you want to go back to the `Receipt Generator` click on the `home`(first icon from left) icon on the top of the page.

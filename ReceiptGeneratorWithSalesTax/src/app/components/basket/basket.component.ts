@@ -3,7 +3,6 @@ import { Item } from '../../models/item'
 import { FormBuilder } from '@angular/forms';
 import { BasketService } from 'src/app/services/basket.service';
 import { HttpClient } from '@angular/common/http';
-import { ReceiptsHistoryComponent } from '../receipts-history/receipts-history.component';
 
 @Component({
   selector: 'app-basket',
@@ -19,6 +18,38 @@ export class BasketComponent implements OnInit {
   }
 
   baseURL: string = "http://localhost:3000/receipts";
+  isShowReceiptGenerator = true;
+  isShowHistory = false;
+  isShowSettings = false;
+  isShowPrintPreview = true;
+
+  showSettings(){
+    this.isShowHistory = false;
+    this.isShowPrintPreview = false;
+    this.isShowSettings = true;
+    this.isShowReceiptGenerator = false;
+  }
+
+  showHome(){
+    this.isShowHistory = false;
+    this.isShowPrintPreview = true;
+    this.isShowSettings = false;
+    this.isShowReceiptGenerator = true;
+  }
+
+  showHistory(){
+    this.isShowHistory = true;
+    this.isShowPrintPreview = false;
+    this.isShowSettings = false;
+    this.isShowReceiptGenerator = false;
+  }
+
+  showPreview(){
+    this.isShowHistory = false;
+    this.isShowPrintPreview = true;
+    this.isShowSettings = false;
+    this.isShowReceiptGenerator = false;
+  }
 
   constructor(
     private basketService: BasketService,
@@ -50,11 +81,7 @@ export class BasketComponent implements OnInit {
           console.error('There was an error!', error);
       }
     });
-    this.getReceipts();
-  }
-
-  getReceipts(){
-    this.http.get(this.baseURL).subscribe(responseData => console.log(responseData));
+    this.clearBasket();
   }
 
   onSubmit(): void {
@@ -70,11 +97,6 @@ export class BasketComponent implements OnInit {
   // delete items from the basket
   deleteItem(item: Item): void {
     this.basketService.deleteFromBasket(item);
-  }
-
-  // to print the receipt
-  showPreview(){
-    
   }
 
   clearBasket(){

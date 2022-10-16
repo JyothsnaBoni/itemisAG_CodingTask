@@ -1,20 +1,20 @@
 <div class="center_basket">
 
-    <button mat-icon-button color="primary">
+    <button (click)="showHome()" mat-icon-button color="primary">
         <mat-icon>home</mat-icon>
     </button>
 
-    <button mat-icon-button color="primary">
+    <button (click)="showSettings()" mat-icon-button color="primary">
         <mat-icon>settings</mat-icon>
     </button>
 
-    <button mat-icon-button color="primary">
+    <button (click)="showHistory()" mat-icon-button color="primary">
         <mat-icon>history</mat-icon>
     </button>
 
     <!-- ********************* form ********************++++ -->
 
-    <div class="center_basket">
+    <div class="center_basket" *ngIf="isShowReceiptGenerator">
 
         <h1>RECIEPT GENERATOR</h1>
         
@@ -61,7 +61,7 @@
 
     <!-- ********************* table ********************++++ -->
     
-    <div class="center_basket">
+    <div class="center_basket" *ngIf="isShowReceiptGenerator">
         <h3>Shopping Basket</h3>
         <br>
 
@@ -112,20 +112,27 @@
     
         <button mat-raised-button   [useExistingCss]="true"
         printSectionId="print_section"
-        ngxPrint class="add_item_button" color="primary" (click)="saveReceipt()">Print</button>
+        ngxPrint class="add_item_button" color="primary" (click)="saveReceipt()">Save & Print</button>
+
+        &nbsp;
+
+        <button mat-raised-button class="add_item_button" color="primary" (click)="showPreview()">Show Invoice Preview</button>
+    
+  
+    
     
         <br>
         <br>
     </div>
 
-    <div id="print_section" class="print_section_div">
+    <div id="print_section" class="print_section_div" *ngIf="isShowPrintPreview">
         &nbsp;
         <app-print [basketItems]="basketItems" [selected]="selected" [itemsTotal]="receipt" [receiptId]="receiptId"></app-print>
     </div>
 
-    <app-receipts-history></app-receipts-history>
+    <app-receipts-history *ngIf="isShowHistory"></app-receipts-history>
 
-    <app-settings></app-settings>
+    <app-settings *ngIf="isShowSettings"></app-settings>
 
 </div>
 
