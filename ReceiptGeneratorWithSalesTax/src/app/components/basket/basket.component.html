@@ -26,11 +26,13 @@
                 </div>
             
                 <div class="flex-child">
-                    <input required id="price" type="text" formControlName="price" placeholder="Price">
+                    <!-- Accepting any float value between 0 to n -->
+                    <input required numbersOnly id="price" pattern="(([0-9]*[.])?[0-9]+)" type="number" id="price" formControlName="price" placeholder="Price">
                 </div>
             
                 <div class="flex-child">
-                    <input required id="count" type="text" formControlName="count" placeholder="Count">
+                    <!-- Accepting count upto 400 -->
+                    <input required numbersOnly pattern="(([1-9][0-9]{0,2}|400)$)" id="count" type="number" id="count" formControlName="count" placeholder="Count">
                 </div>
 
                 <!-- Item type Selector -->
@@ -45,8 +47,12 @@
                 </div>   
 
             </div>
-
             <br>
+            <div *ngIf="validForm() == false">
+                <div *ngFor="let error of form_errors">
+                    <p>{{error}}</p>
+                </div>
+            </div>
 
             <button 
                 [disabled]="itemForm.invalid || selected === 'Select Item Type'" id="addItemButton"

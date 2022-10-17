@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Item } from '../../models/item'
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { BasketService } from 'src/app/services/basket.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,6 +13,7 @@ export class BasketComponent implements OnInit {
   postId: any;
   errorMessage: any;
   totalAngularPackages: any;
+  form_errors: String[] = [];
 
   ngOnInit(): void {
   }
@@ -84,14 +85,32 @@ export class BasketComponent implements OnInit {
     this.clearBasket();
   }
 
+  validForm(){
+    this.form_errors = [];
+    let isValidForm: Boolean = false;
+    if(this.itemForm.value.count < 0 ){
+      this.form_errors.push("Count should be greater than 0");
+    }
+    if(this.itemForm.value.price < 0 ){
+      this.form_errors.push("Price should be greater than 0");
+    }
+
+    if(this.form_errors.length == 0) {
+      isValidForm = true;
+    }
+    return isValidForm;
+  }
+
   onSubmit(): void {
-    // add the selected type to the item
-    this.itemForm.value.type = this.selected;
-    this.itemForm.value.id = this.basketService.getItemId();
-    this.basketService.addToBasket(this.itemForm.value); 
-    
-    //this.basketItems = this.basketService.getItems();
-    this.itemForm.reset();
+
+      // add the selected type to the item
+      this.itemForm.value.type = this.selected;
+      this.itemForm.value.id = this.basketService.getItemId();
+      this.basketService.addToBasket(this.itemForm.value); 
+      
+      //this.basketItems = this.basketService.getItems();
+      this.itemForm.reset();
+
   }
 
   // delete items from the basket
@@ -105,11 +124,6 @@ export class BasketComponent implements OnInit {
     this.receipt = this.basketService.getTotalItems();
     this.basketItems = this.basketService.getItems();
     this.receiptId = this.basketService.generateReceiptId();
-  }
-
-  validateInputs(){
-    if (this.itemForm.value.name === '' || this.itemForm.value.count === '' || this.itemForm.value.price === '') { return true; }
-    else  { return false ; } 
   }
 
 }
