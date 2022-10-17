@@ -339,6 +339,27 @@
       "importTax": 0,
       "totalPrice": 0,
       "items": []
+    },
+    {
+      "id": "1665963122626",
+      "name": "Receipt-1665963122626",
+      "price": 100,
+      "count": 1,
+      "salesTax": 0,
+      "importTax": 5,
+      "totalPrice": 105,
+      "items": [
+        {
+          "id": 1665963147389,
+          "name": "imported book",
+          "price": "100",
+          "count": "1",
+          "type": "books",
+          "importTax": 5,
+          "salesTax": 0,
+          "totalPrice": 105
+        }
+      ]
     }
   ]
 }
