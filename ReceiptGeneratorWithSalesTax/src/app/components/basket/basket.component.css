@@ -75,6 +75,10 @@ border: 1px solid #ddd;
 }
 
 .mat-icon {
+    font-size: 20px;
+}
+
+.mat_icon_custom{
     font-size: 40px;
 }
 

@@ -11,6 +11,7 @@
           <th>Sales Tax</th>
           <th>Import Tax</th>
           <th>Price with Tax</th>
+          <th></th>
         </tr>
         <tr class="cart-item" *ngFor="let receipt of receipts">
           <td>{{ receipt.id }}</td>
@@ -20,7 +21,7 @@
           <td>{{ receipt.salesTax | currency: 'EUR' }}</td>
           <td>{{ receipt.importTax | currency: 'EUR' }}</td>
           <td>{{ receipt.totalPrice | currency: 'EUR' }}</td>
-
+          <td><mat-icon>print</mat-icon></td>
         </tr>
     </table>
 
