@@ -112,7 +112,20 @@ export class BasketComponent implements OnInit {
       // add the selected type to the item
       this.itemForm.value.type = this.selected;
       this.itemForm.value.id = this.basketService.getItemId();
-      this.basketService.addToBasket(this.itemForm.value); 
+
+      let item: Item = {
+        id: this.itemForm.value.id,
+        name: this.itemForm.value.name,
+        price: this.itemForm.value.price,
+        count: this.itemForm.value.count,
+        salesTax: 0,
+        importTax: 0,
+        totalPrice: 0,
+        type: this.itemForm.value.type,
+        receiptId: this.receiptId
+      }
+
+      this.basketService.addToBasket(item); 
       
       //this.basketItems = this.basketService.getItems();
       this.itemForm.reset();
