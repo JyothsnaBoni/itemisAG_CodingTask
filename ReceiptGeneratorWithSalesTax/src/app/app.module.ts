@@ -6,8 +6,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatIconModule } from '@angular/material/icon'
 import { MatSelectModule } from '@angular/material/select';
 import { NgxPrintModule } from 'ngx-print';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BasketComponent } from './components/basket/basket.component';
@@ -35,8 +34,7 @@ import { SettingsComponent } from './components/settings/settings.component';
     MatIconModule,
     MatSelectModule,
     NgxPrintModule,
-    HttpClientModule,
-    HttpClient
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

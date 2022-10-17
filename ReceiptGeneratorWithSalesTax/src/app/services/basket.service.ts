@@ -96,6 +96,7 @@ export class BasketService {
   }
 
   calculateTax(item: Item){
+    
     let importTax = 0;
     let salesTax = 0;
     let totalPrice = item.count * item.price;
@@ -109,5 +110,6 @@ export class BasketService {
 
     return item;
   }
-  
+
+
 }
