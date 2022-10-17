@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BasketComponent } from './basket.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('BasketComponent', () => {
   let component: BasketComponent;
@@ -8,6 +9,10 @@ describe('BasketComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        ReactiveFormsModule,
+        HttpClientModule
+      ],
       declarations: [ BasketComponent ]
     })
     .compileComponents();

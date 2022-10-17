@@ -23,6 +23,7 @@ export class ReceiptsHistoryComponent implements OnInit {
     this.http.get(this.baseURL).subscribe(responseData => this.processResponse(responseData));
   }
   
+  // Converts the receied data from the http get request into receipts array
   processResponse(data: any){
     for (let entry of data) {
       let eachReceipt: Receipt = {

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PrintComponent } from './print.component';
 
 describe('PrintComponent', () => {

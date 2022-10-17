@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReceiptsHistoryComponent } from './receipts-history.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ReceiptsHistoryComponent', () => {
   let component: ReceiptsHistoryComponent;
@@ -7,7 +8,10 @@ describe('ReceiptsHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReceiptsHistoryComponent ]
+      imports: [
+        HttpClientModule
+      ],
+      declarations: [ ReceiptsHistoryComponent ],
     })
     .compileComponents();
   });
