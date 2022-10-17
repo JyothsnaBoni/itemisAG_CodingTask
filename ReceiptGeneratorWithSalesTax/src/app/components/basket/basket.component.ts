@@ -88,11 +88,17 @@ export class BasketComponent implements OnInit {
   validForm(){
     this.form_errors = [];
     let isValidForm: Boolean = false;
-    if(this.itemForm.value.count < 0 ){
-      this.form_errors.push("Count should be greater than 0");
-    }
+
     if(this.itemForm.value.price < 0 ){
-      this.form_errors.push("Price should be greater than 0");
+      this.form_errors.push("* Price should be greater than 0");
+    }
+
+    if(this.itemForm.value.count < 0 ){
+      this.form_errors.push("* Count should be greater than 0");
+    }
+
+    if(this.selected == "Select Item Type"){
+      this.form_errors.push("* Select Item type");
     }
 
     if(this.form_errors.length == 0) {

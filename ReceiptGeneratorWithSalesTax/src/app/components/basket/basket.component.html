@@ -50,7 +50,7 @@
             <br>
             <div *ngIf="validForm() == false">
                 <div *ngFor="let error of form_errors">
-                    <p>{{error}}</p>
+                    <p style="color: red;">{{error}}</p>
                 </div>
             </div>
 
