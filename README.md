@@ -29,6 +29,8 @@ typescript                      4.6.4
 
 ## Install dependencies
 - Use the node package manager (npm) to install dependencies.
+- Navigate to the folder `cd ReceiptGeneratorWithSalesTax`
+- Run the followinf command.
 ```
 $npm install
 
