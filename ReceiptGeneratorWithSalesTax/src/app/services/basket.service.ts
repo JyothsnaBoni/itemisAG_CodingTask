@@ -7,7 +7,6 @@ import { Item, Receipt } from '../models/item';
 export class BasketService {
 
   constructor() { }
-
   items: Item[] = [];
   receipt: Receipt = {
     id: '',
@@ -21,8 +20,10 @@ export class BasketService {
   };
 
   addToBasket(item: Item) {
-    this.items.push(this.calculateTax(item));
-    this.addToTotal(item);
+  
+      this.items.push(this.calculateTax(item));
+      this.addToTotal(item);
+   
   }
 
   deleteFromBasket(item: Item) {
@@ -96,19 +97,21 @@ export class BasketService {
   }
 
   calculateTax(item: Item){
-    
-    let importTax = 0;
-    let salesTax = 0;
-    let totalPrice = item.count * item.price;
-
-    item.type === 'others' ? salesTax = (totalPrice/100)*10 : salesTax = 0; 
-    item.name.includes('imported') ? importTax = (totalPrice/100)*5 : importTax = 0;
-
-    item.importTax = importTax;
-    item.salesTax = salesTax;
-    item.totalPrice = totalPrice + salesTax + importTax;
-
-    return item;
+    if(item.count < 0 || item.price < 0 || item.type == 'Select Item Type'){
+        throw new Error("Invalid Inputs. Something is terribly wrong in the program.");
+    } else {   
+      let importTax = 0;
+      let salesTax = 0;
+      let totalPrice = item.count * item.price;
+  
+      item.type === 'others' ? salesTax = (totalPrice/100)*10 : salesTax = 0; 
+      item.name.includes('imported') ? importTax = (totalPrice/100)*5 : importTax = 0;
+  
+      item.importTax = importTax;
+      item.salesTax = salesTax;
+      item.totalPrice = totalPrice + salesTax + importTax;
+      return item; 
+    }
   }
 
 

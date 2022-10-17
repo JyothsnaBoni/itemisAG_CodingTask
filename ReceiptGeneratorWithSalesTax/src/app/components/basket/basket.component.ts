@@ -98,7 +98,7 @@ export class BasketComponent implements OnInit {
     }
 
     if(this.selected == "Select Item Type"){
-      this.form_errors.push("* Select Item type");
+      this.form_errors.push("* Select Item type.");
     }
 
     if(this.form_errors.length == 0) {
