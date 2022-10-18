@@ -24,6 +24,14 @@
           <td><mat-icon>print</mat-icon></td>
         </tr>
     </table>
+    <br>
+    
+    <div *ngIf="getReceiptsError != ''">            
+      <p style="color: red;">{{getReceiptsError}}</p>
+    </div>
+    <div *ngIf="serverError != ''">            
+      <p style="color: red;">{{serverError}}</p>
+    </div>
 
 </div>
 

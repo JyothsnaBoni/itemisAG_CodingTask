@@ -89,6 +89,7 @@ export class BasketComponent implements OnInit {
     this.http.post<any>(this.baseURL, this.receipt).subscribe({
       next: data => {
           this.postId = data.id;
+          this.clearBasket();
       },
       error: error => {
           this.saveReceiptError = '503 Server Unavailable : There was an error saving the receipt.';
@@ -96,11 +97,6 @@ export class BasketComponent implements OnInit {
           console.error('503 Server Unavailable : There was an error saving the receipt.', error);
       }
     });
-
-    // clear the basket only if the errors are empty
-    if (this.saveReceiptError == ''){
-      this.clearBasket();
-    }
   }
 
   // checks if the form is valid
@@ -148,7 +144,7 @@ export class BasketComponent implements OnInit {
         type: this.itemForm.value.type,
         receiptId: this.receiptId
       }
-      
+
       try{
         this.basketService.addToBasket(item); 
         // clear the form after adding item to basket if there are not errors

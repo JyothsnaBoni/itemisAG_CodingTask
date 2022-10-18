@@ -3,12 +3,12 @@
 }
 
 h1 {
-    margin: 1em;
-    font-size: 40px;
+    margin: 0.5em;
+    font-size: 30px;
   }
 
-h3 {
-    margin-top: 2em;
+h2 {
+    margin-top: 0.5em;
     font-size: 30px;
 }
 
@@ -35,7 +35,7 @@ h3 {
 }
 
 .center_basket {
-    margin: 5em;
+    margin: 1em;
     text-align: center;
     box-shadow: 0 0 10px #ddd;
     background-color: #fff;
