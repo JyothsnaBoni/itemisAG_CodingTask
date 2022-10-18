@@ -23,6 +23,7 @@ describe('BasketService', () => {
     type: 'food',
     receiptId: '1666049636852'
   };
+
   let itemValidResult: Item = {
     id: '1666049651466',
     name: 'chocolate',
@@ -43,9 +44,10 @@ describe('BasketService', () => {
     salesTax: 0,
     importTax: 0,
     totalPrice: 0,
-    type: '',
-    receiptId: ''
+    type: String(Date.now()),
+    receiptId: "receipt-" + String(Date.now())
   };
+
   let itemNegativePriceResult: Item = {
     id: '',
     name: '',
@@ -69,6 +71,7 @@ describe('BasketService', () => {
     type: '',
     receiptId: ''
   };
+
   let itemNegativeCountResult: Item = {
     id: '',
     name: '',
@@ -92,6 +95,7 @@ describe('BasketService', () => {
     type: '',
     receiptId: ''
   }
+
   let itemInvalidPriceResult: Item = {
     id: '',
     name: '',
