@@ -9,11 +9,14 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.css']
 })
+
 export class BasketComponent implements OnInit {
   postId: any;
-  errorMessage: any;
+  saveReceiptError: String = '';
+  serverRespose: String = '';
+  addItemError: String = '';
   totalAngularPackages: any;
-  form_errors: String[] = [];
+  formErrors: String[] = [];
 
   ngOnInit(): void {
   }
@@ -31,6 +34,7 @@ export class BasketComponent implements OnInit {
     this.isShowReceiptGenerator = false;
   }
 
+  // Show generate recipt page
   showHome(){
     this.isShowHistory = false;
     this.isShowPrintPreview = true;
@@ -45,6 +49,7 @@ export class BasketComponent implements OnInit {
     this.isShowReceiptGenerator = false;
   }
 
+  // show receipt preview
   showPreview(){
     this.isShowHistory = false;
     this.isShowPrintPreview = true;
@@ -72,43 +77,62 @@ export class BasketComponent implements OnInit {
   });
 
   saveReceipt() {
+
+    // clear the error messages
+    this.saveReceiptError = '';
+    this.serverRespose = ''
+
+    // create new receipt number
     this.receipt.name = "Receipt-" + this.receipt.id;
+
+    // post the data to the server to save receipt
     this.http.post<any>(this.baseURL, this.receipt).subscribe({
       next: data => {
           this.postId = data.id;
       },
       error: error => {
-          this.errorMessage = error.message;
-          console.error('There was an error!', error);
+          this.saveReceiptError = '503 Server Unavailable : There was an error saving the receipt.';
+          this.serverRespose = error.message;
+          console.error('503 Server Unavailable : There was an error saving the receipt.', error);
       }
     });
-    this.clearBasket();
+
+    // clear the basket only if the errors are empty
+    if (this.saveReceiptError == ''){
+      this.clearBasket();
+    }
   }
 
+  // checks if the form is valid
   validForm(){
-    this.form_errors = [];
+
+    // clear form errors
+    this.formErrors = [];
     let isValidForm: Boolean = false;
 
     if(this.itemForm.value.price < 0 ){
-      this.form_errors.push("* Price should be greater than 0");
+      this.formErrors.push("* Price should be greater than 0");
     }
 
     if(this.itemForm.value.count < 0 ){
-      this.form_errors.push("* Count should be greater than 0");
+      this.formErrors.push("* Count should be greater than 0");
     }
 
     if(this.selected == "Select Item Type"){
-      this.form_errors.push("* Select Item type.");
+      this.formErrors.push("* Select Item type.");
     }
 
-    if(this.form_errors.length == 0) {
+    // check if no errors exist in the form
+    if(this.formErrors.length == 0) {
       isValidForm = true;
     }
+
     return isValidForm;
   }
 
+  // generate item ID and add Item to basket
   onSubmit(): void {
-
+      this.addItemError = '';
       // add the selected type to the item
       this.itemForm.value.type = this.selected;
       this.itemForm.value.id = this.basketService.getItemId();
@@ -124,12 +148,14 @@ export class BasketComponent implements OnInit {
         type: this.itemForm.value.type,
         receiptId: this.receiptId
       }
-
-      this.basketService.addToBasket(item); 
       
-      //this.basketItems = this.basketService.getItems();
-      this.itemForm.reset();
-
+      try{
+        this.basketService.addToBasket(item); 
+        // clear the form after adding item to basket if there are not errors
+        this.itemForm.reset();
+      }catch(e){
+        this.addItemError = 'There was an error adding item to the basket.';
+      }
   }
 
   // delete items from the basket

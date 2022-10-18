@@ -20,10 +20,8 @@ export class BasketService {
   };
 
   addToBasket(item: Item) {
-  
       this.items.push(this.calculateTax(item));
       this.addToTotal(item);
-   
   }
 
   deleteFromBasket(item: Item) {
@@ -62,7 +60,6 @@ export class BasketService {
 
   getItemId(){
     return Date.now();
-    // return Math.floor(Math.random() * 100);
   }
 
   generateReceiptId(){

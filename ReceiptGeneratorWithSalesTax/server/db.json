@@ -51,6 +51,48 @@
       "importTax": 0,
       "totalPrice": 0,
       "items": []
+    },
+    {
+      "id": "1666115793647",
+      "name": "Receipt-1666115793647",
+      "price": 0,
+      "count": 0,
+      "salesTax": 0,
+      "importTax": 0,
+      "totalPrice": 0,
+      "items": []
+    },
+    {
+      "id": "1666115966995",
+      "name": "Receipt-1666115966995",
+      "price": 0,
+      "count": 0,
+      "salesTax": 0,
+      "importTax": 0,
+      "totalPrice": 0,
+      "items": []
+    },
+    {
+      "id": "1666116932151",
+      "name": "Receipt-1666116932151",
+      "price": 100,
+      "count": 1,
+      "salesTax": 0,
+      "importTax": 0,
+      "totalPrice": 100,
+      "items": [
+        {
+          "id": 1666116940790,
+          "name": "cake",
+          "price": 100,
+          "count": 1,
+          "salesTax": 0,
+          "importTax": 0,
+          "totalPrice": 100,
+          "type": "food",
+          "receiptId": "1666116932151"
+        }
+      ]
     }
   ]
 }

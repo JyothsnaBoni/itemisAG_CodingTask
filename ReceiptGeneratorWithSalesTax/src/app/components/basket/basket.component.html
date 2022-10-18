@@ -49,7 +49,7 @@
             </div>
             <br>
             <div *ngIf="validForm() == false">
-                <div *ngFor="let error of form_errors">
+                <div *ngFor="let error of formErrors">
                     <p style="color: red;">{{error}}</p>
                 </div>
             </div>
@@ -59,6 +59,11 @@
                 mat-raised-button class="add_item_button" color="primary" type="submit">
                 Add Item
             </button>
+
+            <br>
+            <div *ngIf="addItemError != ''">            
+                <p style="color: red;">{{addItemError}}</p>
+            </div>
 
         </form>
 
@@ -123,11 +128,18 @@
         &nbsp;
 
         <button mat-raised-button class="add_item_button" color="primary" (click)="showPreview()">Show Invoice Preview</button>
-    
-  
-    
-    
+
         <br>
+        <br>
+
+        <div *ngIf="saveReceiptError != ''">            
+            <p style="color: red;">{{saveReceiptError}}</p>
+        </div>
+
+        <div *ngIf="serverRespose != ''">            
+            <p style="color: red;">{{serverRespose}}</p>
+        </div>
+        
         <br>
     </div>
 
