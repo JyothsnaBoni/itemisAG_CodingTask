@@ -100,13 +100,24 @@ export class BasketService {
       let importTax = 0;
       let salesTax = 0;
       let totalPrice = item.count * item.price;
-  
-      item.type === 'others' ? salesTax = (totalPrice/100)*10 : salesTax = 0; 
-      item.name.includes('imported') ? importTax = (totalPrice/100)*5 : importTax = 0;
+      let totalTaxPercentage = 0;
+      if(item.type === 'others') {
+        salesTax = Number(((totalPrice/100)*10).toFixed(2));
+        totalTaxPercentage = totalTaxPercentage + 10;
+      }else{
+        salesTax = 0; 
+      } 
+      if(item.name.includes('imported')){
+        importTax = Number(((totalPrice/100)*5).toFixed(2));
+        totalTaxPercentage = totalTaxPercentage + 5;
+      }else{
+        importTax = 0;
+      }
   
       item.importTax = importTax;
       item.salesTax = salesTax;
-      item.totalPrice = totalPrice + salesTax + importTax;
+      item.totalPrice = Number((totalPrice + (totalPrice/100)*totalTaxPercentage).toFixed(2));
+      console.log("object with tax : " + JSON.stringify(item));
       return item; 
     }
   }
