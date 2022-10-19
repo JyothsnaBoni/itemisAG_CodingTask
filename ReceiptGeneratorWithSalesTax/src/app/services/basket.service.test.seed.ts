@@ -1,4 +1,4 @@
-import { Item } from "../models/item";
+import { Item , taxCategories} from "../models/item";
 
 // passing test input
 let item_book: Item = {
@@ -261,6 +261,38 @@ export const invalidInputParametersForCalculateTax = [
     {name: "#CalculateTax: Item Book with negative count", input: itemNegativeCount,result: invalidInputErrorMessage}
 ]
 
+// Automated testing
 
+// to generate random value from enum
+function randomEnum<T>(anEnum: T): T[keyof T] {
+    const enumValues = Object.keys(taxCategories)
+      .map(n => Number.parseInt(n))
+      .filter(n => !Number.isNaN(n)) as unknown as T[keyof T][]
+    const randomIndex = Math.floor(Math.random() * enumValues.length)
+    const randomEnumValue = enumValues[randomIndex]
+    return randomEnumValue;
+  }
 
+// export const randomItems: Item[] = []
+
+export function generateRandomItems(){
+    // Item with random values
+    let randomItems: Item[] = []
+    for (let i = 0; i < 3; i++) {
+        let random_item: Item = {
+            id: String(Date.now()),
+            name: (Math.random() + 1).toString(36).substring(7),
+            price: Math.random(),
+            count: Math.random(),
+            salesTax: 0,
+            importTax: 0,
+            totalPrice: 0,
+            type: randomEnum(taxCategories),
+            receiptId: String(Date.now())
+        };
+        randomItems.push(random_item);
+        console.log ("Random Item " + i + JSON.stringify(randomItems));
+    }
+    return randomItems;
+}
 

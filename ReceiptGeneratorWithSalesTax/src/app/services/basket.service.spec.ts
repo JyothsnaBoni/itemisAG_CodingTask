@@ -52,4 +52,25 @@ describe('BasketService', () => {
     });
   });
 
+  seedData.generateRandomItems().forEach(item => {
+      // Test weather the `` method returns only a single value
+      it('#Random items test: Expect count to be positive Integer :' , () => {
+        // expect(typeof itemId).toBe(typeof String);
+        // Test whether the count is a positive integer
+        let itemCount = item.count;
+        expect(itemCount).toBeGreaterThan(0);
+        expect(Number.isInteger(itemCount)).toBeTrue();
+      });
+
+      it('#Random items test: Expect price to be positive :' , () => {
+        // expect(typeof itemId).toBe(typeof String);
+        // Test whether the count is a positive integer
+        let itemPrice = item.price;
+        expect(itemPrice).toBeGreaterThan(0);
+      });
+
+      
+
+  });
+
 });

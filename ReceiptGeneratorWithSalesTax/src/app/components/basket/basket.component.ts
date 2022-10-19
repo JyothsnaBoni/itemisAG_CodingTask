@@ -136,7 +136,7 @@ export class BasketComponent implements OnInit {
   }
 
   // generate item ID and add Item to basket
-  onSubmit(): void {
+  onSubmit() {
       this.addItemError = '';
       // add the selected type to the item
       this.itemForm.value.type = this.selected;
@@ -162,6 +162,8 @@ export class BasketComponent implements OnInit {
       }catch(e){
         this.addItemError = 'There was an error adding item to the basket.';
       }
+
+      return item;
   }
 
   // delete items from the basket
