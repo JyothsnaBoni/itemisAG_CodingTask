@@ -36,4 +36,17 @@ describe('BasketService', () => {
     });
   });
 
+  seedData.invalidInputParametersForCalculateTax.forEach(param => {
+    it(param.name, async () => {
+
+      try {
+        await service.calculateTax(param.input);
+      }
+      catch (ex) {
+          expect(ex).toEqual(new Error('Invalid Inputs. Something is terribly wrong in the program'));
+      }
+      // expect(service.calculateTax(param.input)).toThrow(new Error("Invalid Inputs. Something is terribly wrong in the program."));
+    });
+  });
+
 });

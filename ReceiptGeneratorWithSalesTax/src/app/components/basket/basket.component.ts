@@ -4,11 +4,14 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { BasketService } from 'src/app/services/basket.service';
 import { HttpClient } from '@angular/common/http';
 
+const selectItemType: string = 'Select Item Type';
+
 @Component({
   selector: 'app-basket',
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.css']
 })
+
 
 export class BasketComponent implements OnInit {
   postId: any;
@@ -64,7 +67,7 @@ export class BasketComponent implements OnInit {
   ) { }
 
   basketItems = this.basketService.getItems();
-  selected = 'Select Item Type';
+  selected = selectItemType;
   receipt = this.basketService.getTotalItems();
   receiptId = this.basketService.generateReceiptId();
   

@@ -10,6 +10,13 @@ export interface Item {
     receiptId: string;
   }
 
+export enum taxCategories {
+  food = "food",
+  medicine = "medicine",
+  books = "books",
+  others = "others",
+}
+
 export interface Receipt {
   id: string;
   name: string;

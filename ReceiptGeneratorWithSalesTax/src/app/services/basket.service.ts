@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Item, Receipt } from '../models/item';
+import { Item, Receipt, taxCategories } from '../models/item';
 
 @Injectable({
   providedIn: 'root'
@@ -94,7 +94,7 @@ export class BasketService {
   }
 
   calculateTax(item: Item){
-    if(item.count < 0 || item.price < 0 || item.type == 'Select Item Type'){
+    if(item.count < 0 || item.price < 0 || !(Object.values(taxCategories) as unknown as String).includes(item.type) ){
         throw new Error("Invalid Inputs. Something is terribly wrong in the program.");
     } else {   
       let importTax = 0;

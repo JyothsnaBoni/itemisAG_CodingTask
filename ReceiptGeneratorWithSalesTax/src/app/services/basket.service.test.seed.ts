@@ -216,6 +216,7 @@ let box_of_imported_chocolates_result: Item = {
     type: 'food',
     receiptId: '1566049636735'
 }
+
 export const validInputParametersForCalculateTax = [
     {name: "#CalculateTax: Input Book", input: item_book, result: item_book_result},
     {name: "#CalculateTax: Input Music CD", input: item_music_CD, result: item_music_CD_result},
@@ -230,27 +231,27 @@ export const validInputParametersForCalculateTax = [
 
 // failing test input
 let itemNegativePrice: Item = {
-    id: String(Date.now()),
-    name: "name:" + String(Date.now),
+    id: '1566049651679',
+    name: 'chocolate',
     price: -(Math.random()),
     count: 1,
     salesTax: 0,
     importTax: 0,
     totalPrice: 0,
-    type: String(Date.now()),
-    receiptId: "receipt-" + String(Date.now())
+    type: 'food',
+    receiptId: '1566049636735'
 };
 
 let itemNegativePriceResult: Item = {
-id: '',
-name: '',
-price: 0,
-count: 0,
-salesTax: 0,
-importTax: 0,
-totalPrice: 0,
-type: '',
-receiptId: ''
+    id: '1566049651679',
+    name: 'chocolate',
+    price: -(Math.random()),
+    count: 1,
+    salesTax: 0,
+    importTax: 0,
+    totalPrice: 0,
+    type: 'food',
+    receiptId: '1566049636735'
 };
 
 let itemNegativeCount: Item = {
@@ -324,6 +325,10 @@ totalPrice: 0,
 type: '',
 receiptId: ''
 }
+
+export const invalidInputParametersForCalculateTax = [
+    {name: "#CalculateTax: Item Book with negative price", input: itemNegativePrice, error: new Error("Invalid Inputs. Something is terribly wrong in the program.")}
+]
 
 
 
