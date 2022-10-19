@@ -17,6 +17,7 @@ export class BasketComponent implements OnInit {
   postId: any;
   saveReceiptError: String = '';
   serverRespose: String = '';
+  emptyBasketError: String = '';
   addItemError: String = '';
   totalAngularPackages: any;
   formErrors: String[] = [];
@@ -82,23 +83,29 @@ export class BasketComponent implements OnInit {
 
     // clear the error messages
     this.saveReceiptError = '';
-    this.serverRespose = ''
+    this.serverRespose = '';
+    this.emptyBasketError = '';
 
     // create new receipt number
     this.receipt.name = "Receipt-" + this.receipt.id;
 
-    // post the data to the server to save receipt
-    this.http.post<any>(baseURL, this.receipt).subscribe({
-      next: data => {
-          this.postId = data.id;
-          this.clearBasket();
-      },
-      error: error => {
-          this.saveReceiptError = '503 Server Unavailable : There was an error saving the receipt.';
-          this.serverRespose = error.message;
-          console.error('503 Server Unavailable : There was an error saving the receipt.', error);
+      if(this.basketItems.length != 0){
+          // post the data to the server to save receipt
+        this.http.post<any>(baseURL, this.receipt).subscribe({
+          next: data => {
+              this.postId = data.id;
+              this.clearBasket();
+          },
+          error: error => {
+              this.saveReceiptError = '503 Server Unavailable : There was an error saving the receipt.';
+              this.serverRespose = error.message;
+              console.error('503 Server Unavailable : There was an error saving the receipt.', error);
+          }
+        });
+      }else{
+        this.emptyBasketError = '* Unable to save the receipt.Please add some items into the basket before saving the receipt'
       }
-    });
+
   }
 
   // checks if the form is valid
@@ -151,6 +158,7 @@ export class BasketComponent implements OnInit {
         this.basketService.addToBasket(item); 
         // clear the form after adding item to basket if there are not errors
         this.itemForm.reset();
+        this.emptyBasketError = "";
       }catch(e){
         this.addItemError = 'There was an error adding item to the basket.';
       }

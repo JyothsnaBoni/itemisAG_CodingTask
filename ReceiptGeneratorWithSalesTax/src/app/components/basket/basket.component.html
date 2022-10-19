@@ -138,6 +138,11 @@
         </div>
         
         <br>
+
+        <div *ngIf="emptyBasketError != ''">            
+            <p style="color: red;">{{ emptyBasketError }}</p>
+        </div>
+        
     </div>
 
     <div id="print_section" class="print_section_div" *ngIf="isShowPrintPreview">
