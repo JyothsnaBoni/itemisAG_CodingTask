@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Item, Receipt, taxCategories } from '../models/item';
+import { ItemService } from './item.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasketService {
 
-  constructor() { }
+  constructor( ) { }
+  itemService: ItemService = new ItemService;
   items: Item[] = [];
   receipt: Receipt = {
     id: '',
@@ -94,8 +96,8 @@ export class BasketService {
   }
 
   calculateTax(item: Item){
-    if(!Number.isInteger(item.count) || item.count < 0 || item.price < 0 || !(Object.values(taxCategories) as unknown as String).includes(item.type) ){
-        throw new Error("Invalid Inputs.");
+    if(this.itemService.isValidItem(item).length != 0){
+        throw new Error(this.itemService.isValidItem(item).join());
     } else {   
       let importTax = 0;
       let salesTax = 0;
