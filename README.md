@@ -66,3 +66,20 @@ $npm install
 - On click `Print`, the receipt will be saved in the json db as well as you can see a preview of the print. If you want to proceed with print, you can click on print button in the preview page. After the `print` event, the `invoice` and the `Shopping Basket` will be cleared for new invoice.
 - To check the receipt history, click on the `history` (third icon in order from left to right)icon on the top of the page.
 - If you want to go back to the `Receipt Generator` click on the `home`(first icon from left) icon on the top of the page.
+- In the receipt history window, you can print the receipt by clicking on the print icon button corresponding to each receipt in the table.
+
+## TESTING:
+- To run the tests go to the folder `cd ReceiptGeneratorWithSalesTax`
+- execute the command `ng test`
+- A new chrome browser window will be opened on `http://localhost:9876/`
+- The executed test information can be found in the browser window.
+- Check the test coverage summary using `ng test --no-watch --code-coverage`
+
+````
+=============================== Coverage summary ===============================
+Statements   : 73.1% ( 174/238 )
+Branches     : 68.96% ( 20/29 )
+Functions    : 65.21% ( 30/46 )
+Lines        : 72.17% ( 166/230 )
+================================================================================
+````
