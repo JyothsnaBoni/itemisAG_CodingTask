@@ -2,6 +2,7 @@ import { isNgTemplate } from '@angular/compiler';
 import { TestBed } from '@angular/core/testing';
 import { BasketService } from './basket.service';
 import * as seedData from './basket.service.test.seed'
+import { ItemService } from './item.service'
 
 describe('BasketService', () => {
 
@@ -11,6 +12,7 @@ describe('BasketService', () => {
   });
 
   let service: BasketService;
+  let itemService: ItemService = new ItemService;
 
   it('should be created', () => {
     expect(service).toBeTruthy();
@@ -39,38 +41,45 @@ describe('BasketService', () => {
   seedData.invalidInputParametersForCalculateTax.forEach(param => {
     it(param.name, () => {
 
-      let expectedErrorMessage: String = ""
-
+      let expectedErrorMessage: String = '';
+      
       try {
         service.calculateTax(param.input);
       }
       catch (error: any) {
         expectedErrorMessage = error.message;
       }
-      expect(expectedErrorMessage).toBe(param.result);
+      expect(expectedErrorMessage).toBe(itemService.isValidItem(param.input).join());
 
     });
   });
 
   seedData.generateRandomItems().forEach(item => {
       // Test weather the `` method returns only a single value
-      it('#Random items test: Expect count to be positive Integer :' , () => {
-        // expect(typeof itemId).toBe(typeof String);
-        // Test whether the count is a positive integer
-        let itemCount = item.count;
-        expect(itemCount).toBeGreaterThan(0);
-        expect(Number.isInteger(itemCount)).toBeTrue();
+      // it('#Random items test: Expect count to be positive Integer :' , () => {
+      //   // expect(typeof itemId).toBe(typeof String);
+      //   // Test whether the count is a positive integer
+      //   let itemCount = item.count;
+      //   expect(itemCount).toBeGreaterThan(0);
+      //   expect(Number.isInteger(itemCount)).toBeTrue();
+      // });
+
+      // it('#Random items test: Expect price to be positive :' , () => {
+      //   // expect(typeof itemId).toBe(typeof String);
+      //   // Test whether the count is a positive integer
+      //   let itemPrice = item.price;
+      //   expect(itemPrice).toBeGreaterThan(0);
+      // });
+
+      it('#CalculateTax: Test with random generated Item', () => {
+       try{
+        let actualresult = service.calculateTax(item);
+        expect(actualresult).toBeTruthy();
+       }catch(error: any){
+        expect(error.message).toBe(itemService.isValidItem(item).join());
+       }
+
       });
-
-      it('#Random items test: Expect price to be positive :' , () => {
-        // expect(typeof itemId).toBe(typeof String);
-        // Test whether the count is a positive integer
-        let itemPrice = item.price;
-        expect(itemPrice).toBeGreaterThan(0);
-      });
-
-      
-
   });
 
 });

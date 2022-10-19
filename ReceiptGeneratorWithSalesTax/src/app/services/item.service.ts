@@ -13,7 +13,7 @@ export class ItemService {
 
     let itemErrors : String[] =  [];
 
-    if(item.count < 0 || Number.isInteger(item.count)){
+    if(item.count < 0 || !Number.isInteger(item.count)){
       itemErrors.push(errorcode.ITEM.COUNT_LT_ZERO)
     }
 

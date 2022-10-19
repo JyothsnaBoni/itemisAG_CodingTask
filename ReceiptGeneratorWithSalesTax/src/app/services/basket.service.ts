@@ -99,10 +99,12 @@ export class BasketService {
     if(this.itemService.isValidItem(item).length != 0){
         throw new Error(this.itemService.isValidItem(item).join());
     } else {   
+
       let importTax = 0;
       let salesTax = 0;
       let totalPrice = item.count * item.price;
       let totalTaxPercentage = 0;
+
       if(item.type === taxCategories.others) {
         salesTax = Number(((totalPrice/100)*10).toFixed(2));
         totalTaxPercentage = totalTaxPercentage + 10;
@@ -119,7 +121,6 @@ export class BasketService {
       item.importTax = importTax;
       item.salesTax = salesTax;
       item.totalPrice = Number((totalPrice + (totalPrice/100)*totalTaxPercentage).toFixed(2));
-      console.log("object with tax : " + JSON.stringify(item));
       return item; 
     }
   }
