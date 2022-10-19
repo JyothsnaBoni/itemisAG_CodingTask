@@ -22,29 +22,8 @@
       ]
     },
     {
-      "id": "1666035277582",
-      "name": "Receipt-1666035277582",
-      "price": 100,
-      "count": 5,
-      "salesTax": 0,
-      "importTax": 0,
-      "totalPrice": 500,
-      "items": [
-        {
-          "id": 1666035318735,
-          "name": "Chocolate",
-          "price": "100",
-          "count": "5",
-          "type": "food",
-          "importTax": 0,
-          "salesTax": 0,
-          "totalPrice": 500
-        }
-      ]
-    },
-    {
-      "id": "1666039768697",
-      "name": "Receipt-1666039768697",
+      "id": "1666194315733",
+      "name": "Receipt-1666194315733",
       "price": 0,
       "count": 0,
       "salesTax": 0,
@@ -53,8 +32,8 @@
       "items": []
     },
     {
-      "id": "1666115793647",
-      "name": "Receipt-1666115793647",
+      "id": "1666194354966",
+      "name": "Receipt-1666194354966",
       "price": 0,
       "count": 0,
       "salesTax": 0,
@@ -63,8 +42,8 @@
       "items": []
     },
     {
-      "id": "1666115966995",
-      "name": "Receipt-1666115966995",
+      "id": "1666194626668",
+      "name": "Receipt-1666194626668",
       "price": 0,
       "count": 0,
       "salesTax": 0,
@@ -73,70 +52,56 @@
       "items": []
     },
     {
-      "id": "1666116932151",
-      "name": "Receipt-1666116932151",
+      "id": "1666194635577",
+      "name": "Receipt-1666194635577",
+      "price": 0,
+      "count": 0,
+      "salesTax": 0,
+      "importTax": 0,
+      "totalPrice": 0,
+      "items": []
+    },
+    {
+      "id": "1666194669426",
+      "name": "Receipt-1666194669426",
       "price": 100,
       "count": 1,
-      "salesTax": 0,
+      "salesTax": 10,
       "importTax": 0,
-      "totalPrice": 100,
+      "totalPrice": 110,
       "items": [
         {
-          "id": 1666116940790,
-          "name": "cake",
+          "id": 1666194681438,
+          "name": "music CD",
           "price": 100,
           "count": 1,
-          "salesTax": 0,
+          "salesTax": 10,
           "importTax": 0,
-          "totalPrice": 100,
-          "type": "food",
-          "receiptId": "1666116932151"
+          "totalPrice": 110,
+          "type": "others",
+          "receiptId": "1666194669426"
         }
       ]
     },
     {
-      "id": "1666119764219",
-      "name": "Receipt-1666119764219",
-      "price": 1,
-      "count": 1,
+      "id": "1666194683363",
+      "name": "Receipt-1666194683363",
+      "price": 0,
+      "count": 0,
       "salesTax": 0,
       "importTax": 0,
-      "totalPrice": 1,
-      "items": [
-        {
-          "id": 1666119773300,
-          "name": "choco",
-          "price": 1,
-          "count": 1,
-          "salesTax": 0,
-          "importTax": 0,
-          "totalPrice": 1,
-          "type": "food",
-          "receiptId": "1666119764219"
-        }
-      ]
+      "totalPrice": 0,
+      "items": []
     },
     {
-      "id": "1666119846829",
-      "name": "Receipt-1666119846829",
-      "price": 1,
-      "count": 1,
+      "id": "1666194841634",
+      "name": "Receipt-1666194841634",
+      "price": 0,
+      "count": 0,
       "salesTax": 0,
       "importTax": 0,
-      "totalPrice": 1,
-      "items": [
-        {
-          "id": 1666119869812,
-          "name": "choco",
-          "price": 1,
-          "count": 1,
-          "salesTax": 0,
-          "importTax": 0,
-          "totalPrice": 1,
-          "type": "food",
-          "receiptId": "1666119846829"
-        }
-      ]
+      "totalPrice": 0,
+      "items": []
     }
   ]
 }

@@ -10,7 +10,6 @@ import { Item, Receipt } from 'src/app/models/item';
 export class PrintComponent implements OnInit {
 
   @Input() basketItems: Item[] = [];
-  @Input() selected : string = '';
   @Input() itemsTotal: Receipt = {
     id: '',
     name: '',

@@ -21,16 +21,26 @@
           <td>{{ receipt.salesTax | currency: 'EUR' }}</td>
           <td>{{ receipt.importTax | currency: 'EUR' }}</td>
           <td>{{ receipt.totalPrice | currency: 'EUR' }}</td>
-          <td><mat-icon>print</mat-icon></td>
+          <div class="flex-child">
+          <button mat-icon-button  color="primary" 
+            [useExistingCss]="true" 
+            printSectionId="print_section"
+            ngxPrint (click)="sendRecieptToPrintComponent(receipt)">  
+            <mat-icon>print</mat-icon>
+          </button>
+          </div>
+          <div id="print_section" class="print_section_div" style="display: none;">
+            <app-print [basketItems]="receipt.items" [itemsTotal]="receipt" [receiptId]="receipt.id"></app-print>
+          </div>
         </tr>
     </table>
     <br>
     
     <div *ngIf="getReceiptsError != ''">            
-      <p style="color: red;">{{getReceiptsError}}</p>
+      <p style="color: red;">{{ getReceiptsError }}</p>
     </div>
     <div *ngIf="serverError != ''">            
-      <p style="color: red;">{{serverError}}</p>
+      <p style="color: red;">{{ serverError }}</p>
     </div>
 
 </div>

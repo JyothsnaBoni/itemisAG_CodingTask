@@ -5,13 +5,13 @@ import { BasketService } from 'src/app/services/basket.service';
 import { HttpClient } from '@angular/common/http';
 
 const selectItemType: string = 'Select Item Type';
+const baseURL: string = "http://localhost:3000/receipts";
 
 @Component({
   selector: 'app-basket',
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.css']
 })
-
 
 export class BasketComponent implements OnInit {
   postId: any;
@@ -20,15 +20,14 @@ export class BasketComponent implements OnInit {
   addItemError: String = '';
   totalAngularPackages: any;
   formErrors: String[] = [];
-
-  ngOnInit(): void {
-  }
-
-  baseURL: string = "http://localhost:3000/receipts";
+  
   isShowReceiptGenerator = true;
   isShowHistory = false;
   isShowSettings = false;
   isShowPrintPreview = true;
+
+  ngOnInit(): void {
+  }
 
   showSettings(){
     this.isShowHistory = false;
@@ -89,7 +88,7 @@ export class BasketComponent implements OnInit {
     this.receipt.name = "Receipt-" + this.receipt.id;
 
     // post the data to the server to save receipt
-    this.http.post<any>(this.baseURL, this.receipt).subscribe({
+    this.http.post<any>(baseURL, this.receipt).subscribe({
       next: data => {
           this.postId = data.id;
           this.clearBasket();

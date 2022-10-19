@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Receipt } from 'src/app/models/item';
 
+const baseURL: string = "http://localhost:3000/receipts";
+
 @Component({
   selector: 'app-receipts-history',
   templateUrl: './receipts-history.component.html',
@@ -11,7 +13,6 @@ import { Receipt } from 'src/app/models/item';
 export class ReceiptsHistoryComponent implements OnInit {
 
   receipts: Receipt[] = [];
-  baseURL: string = "http://localhost:3000/receipts";
   serverError: String = '';
   getReceiptsError: String = '';
 
@@ -24,14 +25,7 @@ export class ReceiptsHistoryComponent implements OnInit {
 
   getReceipts(){
     this.serverError = '';
-    // try{
-    //   this.http.get(this.baseURL).subscribe(responseData => this.processResponse(responseData));
-    // }catch(error: any){
-    //   this.serverError = error.message + "Unable to load data.There was something wrong with the server"
-    //   console.log(error.message);
-    // }
-
-    this.http.get(this.baseURL).subscribe({
+    this.http.get(baseURL).subscribe({
       next: responseData => {
         this.processResponse(responseData);
       },
@@ -66,6 +60,10 @@ export class ReceiptsHistoryComponent implements OnInit {
 
       this.receipts.push(eachReceipt)
     }
+  }
+
+  sendRecieptToPrintComponent(receipt: Receipt){
+    
   }
 
 }

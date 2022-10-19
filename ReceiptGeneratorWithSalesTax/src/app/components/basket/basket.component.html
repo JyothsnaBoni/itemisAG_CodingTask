@@ -62,7 +62,7 @@
 
             <br>
             <div *ngIf="addItemError != ''">            
-                <p style="color: red;">{{addItemError}}</p>
+                <p style="color: red;">{{ addItemError }}</p>
             </div>
 
         </form>
@@ -102,7 +102,7 @@
             </tr>
             <tr style="font-weight: bold;">
                 <td> </td>
-                <td > Total </td>
+                <td> Total </td>
                 <td>{{ receipt.count | number }}</td>
                 <td>{{ receipt.price | currency: 'EUR'}}</td>
                 <td>{{ receipt.salesTax | currency: 'EUR' }}</td>
@@ -130,11 +130,11 @@
         <br>
 
         <div *ngIf="saveReceiptError != ''">            
-            <p style="color: red;">{{saveReceiptError}}</p>
+            <p style="color: red;">{{ saveReceiptError }}</p>
         </div>
 
         <div *ngIf="serverRespose != ''">            
-            <p style="color: red;">{{serverRespose}}</p>
+            <p style="color: red;">{{ serverRespose }}</p>
         </div>
         
         <br>
@@ -142,7 +142,7 @@
 
     <div id="print_section" class="print_section_div" *ngIf="isShowPrintPreview">
         &nbsp;
-        <app-print [basketItems]="basketItems" [selected]="selected" [itemsTotal]="receipt" [receiptId]="receiptId"></app-print>
+        <app-print [basketItems]="basketItems" [itemsTotal]="receipt" [receiptId]="receiptId"></app-print>
     </div>
 
     <app-receipts-history *ngIf="isShowHistory"></app-receipts-history>
