@@ -62,8 +62,4 @@ export class ReceiptsHistoryComponent implements OnInit {
     }
   }
 
-  sendRecieptToPrintComponent(receipt: Receipt){
-    
-  }
-
 }
