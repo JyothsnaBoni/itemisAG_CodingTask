@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Item } from '../../models/item'
+import * as err from '../../models/errors'
+
 import { FormBuilder, Validators } from '@angular/forms';
 import { BasketService } from 'src/app/services/basket.service';
 import { HttpClient } from '@angular/common/http';
@@ -19,6 +21,7 @@ export class BasketComponent implements OnInit {
   serverRespose: String = '';
   emptyBasketError: String = '';
   addItemError: String = '';
+
   totalAngularPackages: any;
   formErrors: String[] = [];
   
@@ -97,13 +100,12 @@ export class BasketComponent implements OnInit {
               this.clearBasket();
           },
           error: error => {
-              this.saveReceiptError = '503 Server Unavailable : There was an error saving the receipt.';
+              this.saveReceiptError = err.SERVER.SERVER_ERROR;
               this.serverRespose = error.message;
-              console.error('503 Server Unavailable : There was an error saving the receipt.', error);
           }
         });
       }else{
-        this.emptyBasketError = '* Unable to save the receipt.Please add some items into the basket before saving the receipt'
+        this.emptyBasketError = err.RECEIPT.EMPTY_BASKET_ERROR;
       }
 
   }
@@ -116,15 +118,15 @@ export class BasketComponent implements OnInit {
     let isValidForm: Boolean = false;
 
     if(this.itemForm.value.price < 0 ){
-      this.formErrors.push("* Price should be greater than 0");
+      this.formErrors.push(err.ITEM.PRICE_LT_ZERO);
     }
 
     if(this.itemForm.value.count < 0 ){
-      this.formErrors.push("* Count should be greater than 0");
+      this.formErrors.push(err.ITEM.COUNT_LT_ZERO);
     }
 
     if(this.selected == "Select Item Type"){
-      this.formErrors.push("* Select Item type.");
+      this.formErrors.push(err.ITEM.SELECT_ITEM_TYPE);
     }
 
     // check if no errors exist in the form
@@ -160,7 +162,7 @@ export class BasketComponent implements OnInit {
         this.itemForm.reset();
         this.emptyBasketError = "";
       }catch(e){
-        this.addItemError = 'There was an error adding item to the basket.';
+        this.addItemError = err.ITEM.ADD_ITEM_ERROR;
       }
 
       return item;

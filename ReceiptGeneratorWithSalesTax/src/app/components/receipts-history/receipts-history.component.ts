@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Receipt } from 'src/app/models/item';
+import * as err from '../../models/errors'
 
 const baseURL: string = "http://localhost:3000/receipts";
 
@@ -30,7 +31,7 @@ export class ReceiptsHistoryComponent implements OnInit {
         this.processResponse(responseData);
       },
       error: error => {
-          this.getReceiptsError = '503 Server Unavailable : There was an error retreiving receipt data.';
+          this.getReceiptsError = err.RECEIPT.GET_RECEIPTS_ERROR;
           this.serverError = error.message;
       }
     });
