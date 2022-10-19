@@ -274,7 +274,7 @@ function randomEnum<T>(anEnum: T): T[keyof T] {
   }
 
 // export const randomItems: Item[] = []
-
+// Function to generate random Item objects
 export function generateRandomItems(){
     // Item with random values
     let randomItems: Item[] = []
@@ -291,7 +291,6 @@ export function generateRandomItems(){
             receiptId: String(Date.now())
         };
         randomItems.push(random_item);
-        console.log ("Random Item " + i + JSON.stringify(randomItems));
     }
     return randomItems;
 }

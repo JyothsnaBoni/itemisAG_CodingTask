@@ -94,8 +94,8 @@ export class BasketService {
   }
 
   calculateTax(item: Item){
-    if(item.count < 0 || item.price < 0 || !(Object.values(taxCategories) as unknown as String).includes(item.type) ){
-        throw new Error("Invalid Inputs.Something is terribly wrong in the program.");
+    if(!Number.isInteger(item.count) || item.count < 0 || item.price < 0 || !(Object.values(taxCategories) as unknown as String).includes(item.type) ){
+        throw new Error("Invalid Inputs.");
     } else {   
       let importTax = 0;
       let salesTax = 0;
