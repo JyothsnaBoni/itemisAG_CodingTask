@@ -95,13 +95,13 @@ export class BasketService {
 
   calculateTax(item: Item){
     if(item.count < 0 || item.price < 0 || !(Object.values(taxCategories) as unknown as String).includes(item.type) ){
-        throw new Error("Invalid Inputs. Something is terribly wrong in the program.");
+        throw new Error("Invalid Inputs.Something is terribly wrong in the program.");
     } else {   
       let importTax = 0;
       let salesTax = 0;
       let totalPrice = item.count * item.price;
       let totalTaxPercentage = 0;
-      if(item.type === 'others') {
+      if(item.type === taxCategories.others) {
         salesTax = Number(((totalPrice/100)*10).toFixed(2));
         totalTaxPercentage = totalTaxPercentage + 10;
       }else{

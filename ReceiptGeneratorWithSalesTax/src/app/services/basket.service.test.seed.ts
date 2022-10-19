@@ -232,102 +232,33 @@ export const validInputParametersForCalculateTax = [
 // failing test input
 let itemNegativePrice: Item = {
     id: '1566049651679',
-    name: 'chocolate',
+    name: 'book',
     price: -(Math.random()),
     count: 1,
     salesTax: 0,
     importTax: 0,
     totalPrice: 0,
-    type: 'food',
-    receiptId: '1566049636735'
-};
-
-let itemNegativePriceResult: Item = {
-    id: '1566049651679',
-    name: 'chocolate',
-    price: -(Math.random()),
-    count: 1,
-    salesTax: 0,
-    importTax: 0,
-    totalPrice: 0,
-    type: 'food',
+    type: 'books',
     receiptId: '1566049636735'
 };
 
 let itemNegativeCount: Item = {
-id: '',
-name: '',
-price: 0,
-count: 0,
-salesTax: 0,
-importTax: 0,
-totalPrice: 0,
-type: '',
-receiptId: ''
+    id: '1566049651679',
+    name: 'book',
+    price: 100,
+    count:  -(Math.random()),
+    salesTax: 0,
+    importTax: 0,
+    totalPrice: 0,
+    type: 'books',
+    receiptId: '1566049636735'
 };
 
-let itemNegativeCountResult: Item = {
-id: '',
-name: '',
-price: 0,
-count: 0,
-salesTax: 0,
-importTax: 0,
-totalPrice: 0,
-type: '',
-receiptId: ''
-};
-
-let itemInvalidPrice: Item = {
-id: '',
-name: '',
-price: 0,
-count: 0,
-salesTax: 0,
-importTax: 0,
-totalPrice: 0,
-type: '',
-receiptId: ''
-}
-
-let itemInvalidPriceResult: Item = {
-id: '',
-name: '',
-price: 0,
-count: 0,
-salesTax: 0,
-importTax: 0,
-totalPrice: 0,
-type: '',
-receiptId: ''
-}
-
-let itemInvalidCount: Item = {
-id: '',
-name: '',
-price: 0,
-count: 0,
-salesTax: 0,
-importTax: 0,
-totalPrice: 0,
-type: '',
-receiptId: ''
-}
-
-let itemInvalidCountResult: Item = {
-id: '',
-name: '',
-price: 0,
-count: 0,
-salesTax: 0,
-importTax: 0,
-totalPrice: 0,
-type: '',
-receiptId: ''
-}
+let invalidInputErrorMessage: String = "Invalid Inputs.Something is terribly wrong in the program.";
 
 export const invalidInputParametersForCalculateTax = [
-    {name: "#CalculateTax: Item Book with negative price", input: itemNegativePrice, error: new Error("Invalid Inputs. Something is terribly wrong in the program.")}
+    {name: "#CalculateTax: Item Book with negative price", input: itemNegativePrice,result: invalidInputErrorMessage},
+    {name: "#CalculateTax: Item Book with negative count", input: itemNegativeCount,result: invalidInputErrorMessage}
 ]
 
 
