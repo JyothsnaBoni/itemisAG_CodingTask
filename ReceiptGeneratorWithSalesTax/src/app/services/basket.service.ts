@@ -1,3 +1,4 @@
+import { NUMBER_TYPE } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { Item, Receipt, taxCategories } from '../models/item';
 import { ItemService } from './item.service';
@@ -96,6 +97,7 @@ export class BasketService {
   }
 
   calculateTax(item: Item){
+
     if(this.itemService.isValidItem(item).length != 0){
         throw new Error(this.itemService.isValidItem(item).join());
     } else {   
@@ -120,7 +122,14 @@ export class BasketService {
   
       item.importTax = importTax;
       item.salesTax = salesTax;
-      item.totalPrice = Number((totalPrice + (totalPrice/100)*totalTaxPercentage).toFixed(2));
+      // let totalTax = Number((totalPrice/100)*totalTaxPercentage);
+      // let totalTax_rounded = Number(Math.ceil(totalTax*20)/20).toFixed(2);
+
+      const total_tax = Number((totalPrice/100)*totalTaxPercentage);
+      const total_tax_rounded = Number((Math.ceil(total_tax * 20) / 20).toFixed(2));
+      console.log(total_tax_rounded)
+
+      item.totalPrice = Number((totalPrice + total_tax_rounded).toFixed(2));
       return item; 
     }
   }

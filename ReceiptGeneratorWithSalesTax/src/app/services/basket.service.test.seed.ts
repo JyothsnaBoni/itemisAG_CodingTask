@@ -116,7 +116,7 @@ let input_2_imported_bottle_of_perfume_result: Item = {
     count: 1,
     salesTax: 4.75,
     importTax: 2.38,
-    totalPrice: 54.63,
+    totalPrice: 54.65,
     type: 'others',
     receiptId: '1666049636835'
 }
@@ -214,7 +214,7 @@ let input_3_box_of_imported_chocolates_result: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0.56,
-    totalPrice: 11.81,
+    totalPrice: 11.85,
     type: 'food',
     receiptId: '1566049636735'
 }
