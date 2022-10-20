@@ -22,11 +22,12 @@
           <div class="flex-child">
           <button mat-icon-button  color="primary" 
             [useExistingCss]="true" 
-            printSectionId="print_section" ngxPrint>  
+            [printSectionId]="receipt.id" ngxPrint>  
             <mat-icon>print</mat-icon>
           </button>
           </div>
-          <div id="print_section" class="print_section_div" style="display: none;">
+          <!-- id="print_section" -->
+          <div [id]="receipt.id"  class="print_section_div" style="display: none;">
             <app-print [basketItems]="receipt.items" [itemsTotal]="receipt" [receiptId]="receipt.id"></app-print>
           </div>
         </tr>
