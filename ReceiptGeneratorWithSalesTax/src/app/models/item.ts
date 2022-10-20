@@ -5,6 +5,7 @@ export interface Item {
     count: number;
     salesTax: number;
     importTax: number;
+    totalTax: number;
     totalPrice: number;
     type: string;
     receiptId: string;
@@ -24,6 +25,7 @@ export interface Receipt {
   count: number;
   salesTax: number;
   importTax: number;
+  totalTax: number;
   totalPrice: number;
   items: Item[];
 }

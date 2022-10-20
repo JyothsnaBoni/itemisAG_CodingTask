@@ -151,6 +151,7 @@ export class BasketComponent implements OnInit {
         count: this.itemForm.value.count,
         salesTax: 0,
         importTax: 0,
+        totalTax: 0,
         totalPrice: 0,
         type: this.itemForm.value.type,
         receiptId: this.receiptId

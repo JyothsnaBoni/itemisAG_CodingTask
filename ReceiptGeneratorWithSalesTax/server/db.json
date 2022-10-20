@@ -7,6 +7,7 @@
       "count": 1,
       "salesTax": 0,
       "importTax": 0,
+      "totalTax": 0,
       "totalPrice": 100,
       "items": [
         {
@@ -22,222 +23,86 @@
       ]
     },
     {
-      "id": "1666196631530",
-      "name": "Receipt-1666196631530",
-      "price": 10,
-      "count": 1,
-      "salesTax": 1,
+      "id": "1666259532222",
+      "name": "Receipt-1666259532222",
+      "price": 24.98,
+      "count": 2,
+      "salesTax": 2.5,
       "importTax": 0,
-      "totalPrice": 11,
+      "totalTax": 2.5,
+      "totalPrice": 27.48,
       "items": [
         {
-          "id": 1666196647218,
-          "name": "music CD",
-          "price": 10,
+          "id": 1666259546286,
+          "name": "1 book: 12.49",
+          "price": 12.49,
           "count": 1,
-          "salesTax": 1,
+          "salesTax": 1.25,
           "importTax": 0,
-          "totalPrice": 11,
+          "totalTax": 1.25,
+          "totalPrice": 13.74,
           "type": "others",
-          "receiptId": "1666196631530"
+          "receiptId": "1666259532222"
+        },
+        {
+          "id": 1666259582017,
+          "name": "1 book: 12.49",
+          "price": 12.49,
+          "count": 1,
+          "salesTax": 1.25,
+          "importTax": 0,
+          "totalTax": 1.25,
+          "totalPrice": 13.74,
+          "type": "others",
+          "receiptId": "1666259532222"
         }
       ]
     },
     {
-      "id": "1666207961352",
-      "name": "Receipt-1666207961352",
-      "price": 500,
-      "count": 5,
-      "salesTax": 30,
-      "importTax": 10,
-      "totalPrice": 540,
-      "items": [
-        {
-          "id": 1666208267448,
-          "name": "music CD",
-          "price": 100,
-          "count": 1,
-          "salesTax": 10,
-          "importTax": 0,
-          "totalPrice": 110,
-          "type": "others",
-          "receiptId": "1666207961352"
-        },
-        {
-          "id": 1666208314346,
-          "name": "music CD",
-          "price": 100,
-          "count": 1,
-          "salesTax": 10,
-          "importTax": 0,
-          "totalPrice": 110,
-          "type": "others",
-          "receiptId": "1666207961352"
-        },
-        {
-          "id": 1666208324496,
-          "name": "imported bottle of perfume",
-          "price": 100,
-          "count": 1,
-          "salesTax": 10,
-          "importTax": 5,
-          "totalPrice": 115,
-          "type": "others",
-          "receiptId": "1666207961352"
-        },
-        {
-          "id": 1666208359569,
-          "name": "imported box of chocolates",
-          "price": 100,
-          "count": 1,
-          "salesTax": 0,
-          "importTax": 5,
-          "totalPrice": 105,
-          "type": "food",
-          "receiptId": "1666207961352"
-        },
-        {
-          "id": 1666208368815,
-          "name": "chocolate",
-          "price": 100,
-          "count": 1,
-          "salesTax": 0,
-          "importTax": 0,
-          "totalPrice": 100,
-          "type": "food",
-          "receiptId": "1666207961352"
-        }
-      ]
-    },
-    {
-      "id": "1666213829182",
-      "name": "Receipt-1666213829182",
-      "price": 28.33,
+      "id": "1666259585475",
+      "name": "Receipt-1666259585475",
+      "price": 28.330000000000002,
       "count": 3,
       "salesTax": 1.5,
       "importTax": 0,
-      "totalPrice": 29.830000000000002,
+      "totalTax": 1.5,
+      "totalPrice": 29.83,
       "items": [
         {
-          "id": 1666215398553,
-          "name": "book",
+          "id": 1666259795453,
+          "name": " 1 book at 12.49",
           "price": 12.49,
           "count": 1,
           "salesTax": 0,
           "importTax": 0,
+          "totalTax": 0,
           "totalPrice": 12.49,
           "type": "books",
-          "receiptId": "1666213829182"
+          "receiptId": "1666259585475"
         },
         {
-          "id": 1666215440976,
-          "name": "music CD",
+          "id": 1666259813366,
+          "name": "1 music CD at 14.99",
           "price": 14.99,
           "count": 1,
           "salesTax": 1.5,
           "importTax": 0,
+          "totalTax": 1.5,
           "totalPrice": 16.49,
           "type": "others",
-          "receiptId": "1666213829182"
+          "receiptId": "1666259585475"
         },
         {
-          "id": 1666215467759,
-          "name": "chocolate bar",
+          "id": 1666259828348,
+          "name": "1 chocolate bar at 0.85",
           "price": 0.85,
           "count": 1,
           "salesTax": 0,
           "importTax": 0,
+          "totalTax": 0,
           "totalPrice": 0.85,
           "type": "food",
-          "receiptId": "1666213829182"
-        }
-      ]
-    },
-    {
-      "id": "1666215585107",
-      "name": "Receipt-1666215585107",
-      "price": 57.5,
-      "count": 2,
-      "salesTax": 4.75,
-      "importTax": 2.88,
-      "totalPrice": 65.13,
-      "items": [
-        {
-          "id": 1666215640040,
-          "name": "imported bottle of perfume",
-          "price": 47.5,
-          "count": 1,
-          "salesTax": 4.75,
-          "importTax": 2.38,
-          "totalPrice": 54.63,
-          "type": "others",
-          "receiptId": "1666215585107"
-        },
-        {
-          "id": 1666215981914,
-          "name": "imported box of chocolates",
-          "price": 10,
-          "count": 1,
-          "salesTax": 0,
-          "importTax": 0.5,
-          "totalPrice": 10.5,
-          "type": "food",
-          "receiptId": "1666215585107"
-        }
-      ]
-    },
-    {
-      "id": "1666216305245",
-      "name": "Receipt-1666216305245",
-      "price": 67.97999999999999,
-      "count": 4,
-      "salesTax": 4.699999999999999,
-      "importTax": 1.96,
-      "totalPrice": 74.64,
-      "items": [
-        {
-          "id": 1666216323208,
-          "name": "imported bottle of perfume",
-          "price": 27.99,
-          "count": 1,
-          "salesTax": 2.8,
-          "importTax": 1.4,
-          "totalPrice": 32.19,
-          "type": "others",
-          "receiptId": "1666216305245"
-        },
-        {
-          "id": 1666216383800,
-          "name": "bottle of perfume",
-          "price": 18.99,
-          "count": 1,
-          "salesTax": 1.9,
-          "importTax": 0,
-          "totalPrice": 20.89,
-          "type": "others",
-          "receiptId": "1666216305245"
-        },
-        {
-          "id": 1666216681082,
-          "name": "packet of headache pills",
-          "price": 9.75,
-          "count": 1,
-          "salesTax": 0,
-          "importTax": 0,
-          "totalPrice": 9.75,
-          "type": "medicine",
-          "receiptId": "1666216305245"
-        },
-        {
-          "id": 1666216699660,
-          "name": "box of imported chocolates",
-          "price": 11.25,
-          "count": 1,
-          "salesTax": 0,
-          "importTax": 0.56,
-          "totalPrice": 11.81,
-          "type": "food",
-          "receiptId": "1666216305245"
+          "receiptId": "1666259585475"
         }
       ]
     }

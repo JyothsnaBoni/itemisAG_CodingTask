@@ -47,6 +47,7 @@ export class ReceiptsHistoryComponent implements OnInit {
         count: 0,
         salesTax: 0,
         importTax: 0,
+        totalTax: 0,
         totalPrice: 0,
         items: []
       };
@@ -56,6 +57,7 @@ export class ReceiptsHistoryComponent implements OnInit {
       eachReceipt.count = entry.count;
       eachReceipt.salesTax = entry.salesTax;
       eachReceipt.importTax = entry.importTax;
+      eachReceipt.totalTax = entry.totalTax;
       eachReceipt.totalPrice = entry.totalPrice;
       eachReceipt.items = entry.items;
 

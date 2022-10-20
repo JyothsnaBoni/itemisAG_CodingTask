@@ -79,8 +79,9 @@
               <th>Name</th>
               <th>Count</th>
               <th>Price</th>
-              <th>Sales Tax</th>
-              <th>Import Tax</th>
+              <!-- <th>Sales Tax</th>
+              <th>Import Tax</th> -->
+              <th>Tax</th>
               <th>Price with Tax</th>
               <th></th>
             </tr>
@@ -89,8 +90,9 @@
               <td>{{ item.name }}</td>
               <td>{{ item.count | number }}</td>
               <td>{{ item.price | currency: 'EUR'}}</td>
-              <td>{{ item.salesTax | currency: 'EUR' }}</td>
-              <td>{{ item.importTax | currency: 'EUR' }}</td>
+              <!-- <td>{{ item.salesTax | currency: 'EUR' }}</td>
+              <td>{{ item.importTax | currency: 'EUR' }}</td> -->
+              <td>{{ item.totalTax | currency: 'EUR'}}</td>
               <td>{{ item.totalPrice | currency: 'EUR' }}</td>
               <td>
                 <div class="flex-child">
@@ -105,9 +107,9 @@
                 <td> Total </td>
                 <td>{{ receipt.count | number }}</td>
                 <td>{{ receipt.price | currency: 'EUR'}}</td>
-                <td>{{ receipt.salesTax | currency: 'EUR' }}</td>
-                <td>{{ receipt.importTax | currency: 'EUR' }}</td>
+                <td>{{ receipt.totalTax | currency: 'EUR' }}</td>
                 <td>{{ receipt.totalPrice | currency: 'EUR' }}</td>
+                <td> </td>
             </tr>
         </table>
     
@@ -142,7 +144,6 @@
         <div *ngIf="emptyBasketError != ''">            
             <p style="color: red;">{{ emptyBasketError }}</p>
         </div>
-        
     </div>
 
     <div id="print_section" class="print_section_div" *ngIf="isShowPrintPreview">

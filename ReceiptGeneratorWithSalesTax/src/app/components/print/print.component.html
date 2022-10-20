@@ -56,13 +56,17 @@
             border-radius: 3px;">
             <thead style="width: 100%;
             border-radius: 4px;">
-                <tr>
+                <!-- <tr>
                 <td>Total Sales Tax: </td>
                 <td style="text-align: right;">{{itemsTotal.salesTax | currency: 'EUR'}}</td>
                 </tr>
                 <tr>
                 <td>Total Import Tax: </td>
                 <td style="text-align: right;">{{itemsTotal.importTax | currency: 'EUR'}}</td>
+                </tr> -->
+                <tr>
+                    <td>Total Tax: </td>
+                    <td style="text-align: right;">{{itemsTotal.totalTax | currency: 'EUR'}}</td>
                 </tr>
             </thead>
             

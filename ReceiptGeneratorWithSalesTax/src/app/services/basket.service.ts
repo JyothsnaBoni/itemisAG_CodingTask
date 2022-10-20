@@ -18,6 +18,7 @@ export class BasketService {
     count: 0,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0,
     items: [],
   };
@@ -41,6 +42,7 @@ export class BasketService {
     this.receipt.salesTax =  Number(this.receipt.salesTax) + Number(item.salesTax);
     this.receipt.importTax =  Number(this.receipt.importTax) + Number(item.importTax);
     this.receipt.price =  Number(this.receipt.price) + Number(item.price);
+    this.receipt.totalTax =  Number(this.receipt.totalTax) + Number(item.totalTax);
     this.receipt.totalPrice =  Number(this.receipt.totalPrice) + Number(item.totalPrice);
     this.receipt.items = this.items;
 
@@ -91,6 +93,7 @@ export class BasketService {
       count: 0,
       salesTax: 0,
       importTax: 0,
+      totalTax: 0,
       totalPrice: 0,
       items: []
     }
@@ -128,7 +131,7 @@ export class BasketService {
       const total_tax = Number((totalPrice/100)*totalTaxPercentage);
       const total_tax_rounded = Number((Math.ceil(total_tax * 20) / 20).toFixed(2));
       console.log(total_tax_rounded)
-
+      item.totalTax = total_tax_rounded;
       item.totalPrice = Number((totalPrice + total_tax_rounded).toFixed(2));
       return item; 
     }

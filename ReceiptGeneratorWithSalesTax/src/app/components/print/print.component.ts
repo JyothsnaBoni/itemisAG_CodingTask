@@ -17,6 +17,7 @@ export class PrintComponent implements OnInit {
     count: 0,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0,
     items: []
   };

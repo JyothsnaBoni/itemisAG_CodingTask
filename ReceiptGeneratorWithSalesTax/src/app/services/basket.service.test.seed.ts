@@ -8,6 +8,7 @@ let input_1_book: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax:0,
     totalPrice: 0,
     type: 'books',
     receiptId: '1666049636852'
@@ -20,6 +21,7 @@ let input_1_book_result: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 12.49,
     type: 'books',
     receiptId: '1666049636852'
@@ -32,6 +34,7 @@ let input_1_music_CD: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0,
     type: 'others',
     receiptId: '1666049636853'
@@ -44,6 +47,7 @@ let input_1_music_CD_result: Item = {
     count: 1,
     salesTax: 1.50,
     importTax: 0,
+    totalTax: 1.5,
     totalPrice: 16.49,
     type: 'others',
     receiptId: '1666049636853'
@@ -56,6 +60,7 @@ let input_1_chocolate_bar: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0,
     type: 'food',
     receiptId: '1666049636833'
@@ -68,6 +73,7 @@ let input_1_chocolate_bar_result: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0.85,
     type: 'food',
     receiptId: '1666049636833'
@@ -80,6 +86,7 @@ let input_2_imported_box_of_chocolates: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0,
     type: 'food',
     receiptId: '1666049636834'
@@ -92,6 +99,7 @@ let input_2_imported_box_of_chocolates_result: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0.5,
+    totalTax: 0.5,
     totalPrice: 10.50,
     type: 'food',
     receiptId: '1666049636834'
@@ -104,6 +112,7 @@ let input_2_imported_bottle_of_perfume: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0,
     type: 'others',
     receiptId: '1666049636835'
@@ -116,6 +125,7 @@ let input_2_imported_bottle_of_perfume_result: Item = {
     count: 1,
     salesTax: 4.75,
     importTax: 2.38,
+    totalTax: 7.15,
     totalPrice: 54.65,
     type: 'others',
     receiptId: '1666049636835'
@@ -130,6 +140,7 @@ let input_3_imported_bottle_of_perfume: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0,
     type: 'others',
     receiptId: '1666049636830'
@@ -142,6 +153,7 @@ let input_3_imported_bottle_of_perfume_result: Item = {
     count: 1,
     salesTax: 2.80,
     importTax: 1.40,
+    totalTax: 4.2,
     totalPrice: 32.19,
     type: 'others',
     receiptId: '1666049636830'
@@ -154,6 +166,7 @@ let input_3_bottle_of_perfume: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0,
     type: 'others',
     receiptId: '1666049636735'
@@ -166,6 +179,7 @@ let input_3_bottle_of_perfume_result: Item = {
     count: 1,
     salesTax: 1.90,
     importTax: 0,
+    totalTax:  1.9,
     totalPrice: 20.89,
     type: 'others',
     receiptId: '1666049636735'
@@ -178,6 +192,7 @@ let input_3_packet_of_headache_pills: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0,
     type: 'medicine',
     receiptId: '1566049636735'
@@ -190,6 +205,7 @@ let input_3_packet_of_headache_pills_result: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 9.75,
     type: 'medicine',
     receiptId: '1566049636735'
@@ -202,6 +218,7 @@ let input_3_box_of_imported_chocolates: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0,
     type: 'food',
     receiptId: '1566049636735'
@@ -214,6 +231,7 @@ let input_3_box_of_imported_chocolates_result: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0.56,
+    totalTax: 0.6,
     totalPrice: 11.85,
     type: 'food',
     receiptId: '1566049636735'
@@ -245,6 +263,7 @@ let itemNegativePrice: Item = {
     count: 1,
     salesTax: 0,
     importTax: 0,
+    totalTax: 0,
     totalPrice: 0,
     type: 'books',
     receiptId: '1566049636735'
@@ -257,6 +276,7 @@ let itemNegativeCount: Item = {
     count:  -(Math.random()),
     salesTax: 0,
     importTax: 0,
+    totalTax:0,
     totalPrice: 0,
     type: 'books',
     receiptId: '1566049636735'
@@ -294,6 +314,7 @@ export function generateRandomItems(){
             count: Math.random(),
             salesTax: 0,
             importTax: 0,
+            totalTax: 0,
             totalPrice: 0,
             type: randomEnum(taxCategories),
             receiptId: String(Date.now())
